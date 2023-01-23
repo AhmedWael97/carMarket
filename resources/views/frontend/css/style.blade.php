@@ -139,5 +139,24 @@
     .compare-table {
         font-weight: bold;
     }
+    .card-padding {
+        padding:15px;
+    }
+    .img-radius {
+        border-style: solid;
+        border-radius: 0.375rem;
+        border-color: transparent;
+        border-width: 0;
+    }
+    .w-auto-100 {
+        width: auto;
+        height: 450px;
+    }
+    .height-450 {
+        height: 450px;
+    }
+    .fa-size-24 {
+        font-size: 24px;
+    }
 </style>
 

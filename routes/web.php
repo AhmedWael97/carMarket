@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/compare', function () {
     return view('frontend.pages.compare');
 });
+Route::get('/car', function () {
+    return view('frontend.pages.car');
+});
