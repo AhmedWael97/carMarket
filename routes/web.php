@@ -22,3 +22,4 @@ Route::get('/compare', function () {
 Route::get('/car', function () {
     return view('frontend.pages.car');
 });
+
