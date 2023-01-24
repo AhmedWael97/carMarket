@@ -1,4 +1,4 @@
-<div class="card item-card">
+<div class="card item-card mb-3">
     <div class="imgCap">
         <img src="{{ url('/assets/imgs/bg-8.jpg') }}"  class="w-100"/>
         <div class="brands mb-2 ">

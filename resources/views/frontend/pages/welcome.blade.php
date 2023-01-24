@@ -9,12 +9,12 @@
                    {{ translate(' إبحث عن نوع السيارة المناسب لكـ') }}
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form method="get" action="{{ route('search') }}">
                         <div class="form-group mb-4">
                             <label>
                                {{ translate('ماركة السيارة') }}
                             </label>
-                            <select class="form-select makes select2" name="model">
+                            <select class="form-select makes select2" required name="make">
                                 <option disabled selected> {{ translate('إختر ماركة السيارة') }} </option>
                                 @foreach($makes as $make)
                                     <option value="{{ $make->id }}">
@@ -27,7 +27,7 @@
                             <label>
                                {{ translate('موديل السيارة') }}
                             </label>
-                            <select class="form-select models select2" name="model"></select>
+                            <select class="form-select models select2" required name="model"></select>
                         </div>
                         <div class="form-group mb-4">
                             <label>

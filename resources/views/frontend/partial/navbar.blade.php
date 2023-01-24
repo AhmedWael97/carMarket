@@ -21,18 +21,16 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url('/') }}">الـرئيسية</a>
           </li>
+          @if(Session::has('compares'))
           <li class="nav-item">
-            <a class="nav-link" href="#">ماركات السيارات</a>
+            <a class="nav-link" href="{{ route('compare-page') }}"> المقارنة </a>
           </li>
+          @endif
+          @if(Session::has('favs'))
           <li class="nav-item">
-            <a class="nav-link" href="#">موديلات السيارات</a>
+            <a class="nav-link" href="{{ route('fav-page') }}"> المفضلة </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"> المقارنة </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/compare') }}"> المفضلة </a>
-          </li>
+          @endif
           {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown

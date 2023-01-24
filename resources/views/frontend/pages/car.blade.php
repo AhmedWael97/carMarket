@@ -5,13 +5,13 @@
         <div class="mt-2">
             <small>
                 <b>
-                    <i class="bi bi-house"></i> {{ translate('الرئيسية') }}  /  <i class="bi bi-tag"></i> هيونداي - huyndai / <i class="bi bi-car-front"></i> هيونداي توسان
+                    <i class="bi bi-house"></i> {{ translate('الرئيسية') }}  /  <i class="bi bi-tag"></i> {{ $car->make != null ?  $car->make->name  : '' }} / <i class="bi bi-car-front"></i> {{ $car->model_type != null ?  $car->model_type->name  : '' }}
                 </b>
             </small>
         </div>
         <div class="header mt-2 text-center">
             <h2>
-                هيونداي توسان 2022
+                {{ $car->name }}
             </h2>
         </div>
         <hr>
@@ -27,15 +27,27 @@
                                 {{ translate('السعر') }}
                             </span>
                             <br>
-                            2220000 SAR
+                           @if($car->discount_price != 0)
+                                <span class="text-line-through">
+                                    {{ $car->price }} {{ get_currency() }}
+                                </span>
+                                <br>
+                                <span class="">
+                                    {{ $car->discount_price }} {{ get_currency() }}
+                                </span>
+                           @else
+                           <span class="">
+                                {{ $car->price }} {{ get_currency() }}
+                            </span>
+                           @endif
                         </b>
                     </h3>
                 </div>
                 <div class="card card-padding mt-2">
-                    <button class="btn btn-primary w-100">
+                    <button carid="{{ $car->id }}" class="btn btn-primary addCompare w-100">
                         <i class="bi bi-plus-lg"></i> {{ translate('إضافة إلي المقارنة') }}
                     </button>
-                    <button class="btn btn-danger mt-2 w-100">
+                    <button carid="{{ $car->id }}" class="btn btn-danger addFavorite mt-2 w-100">
                         <i class="bi bi-plus-lg"></i> {{ translate('إضافة إلي المفضلة') }}
                     </button>
                 </div>
@@ -60,63 +72,54 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                         <div class="row no-padding m-2">
-                            <div class="col-md-3">
-                                <div class="text-center">
+                            <?php
+                                $details = car_details($car);
+                            ?>
+                            @foreach($details as $detail)
+                                <div class="col-md-3 mb-4">
+                                    <div class="text-center">
 
-                                    <i class="fa-size-24 fa-solid fa-triangle-exclamation"></i>
-                                        <br>
-                                        <span>
-                                            {{ translate('الضمان') }}
-                                        </span>
-                                        <br>
-                                        <strong>100000 كم /
-                                        3 سنوات </strong>
+                                            {!! $detail[1] !!}
+                                            <br>
+                                            <span>
+                                                {{ $detail[0] }}
+                                            </span>
+                                            <br>
+                                            <strong>{{ $detail[2] }}</strong>
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center">
-
-                                    <i class="fa-solid fa-car fa-size-24"></i>
-                                        <br>
-                                        <span>
-                                            {{ translate('الماتور') }}
-                                        </span>
-                                        <br>
-                                        <strong>1600 سي سي</strong>
-
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center">
-
-                                    <i class="fa-solid fa-horse fa-size-24"></i>
-                                        <br>
-                                        <span>
-                                            {{ translate('حصان ميكانيكي') }}
-                                        </span>
-                                        <br>
-                                        <strong>110 حصان</strong>
-
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center">
-
-                                    <i class="fa-solid fa-gauge-simple-high font-size-24"></i>
-                                        <br>
-                                        <span>
-                                            {{ translate('أقصي سرعة') }}
-                                        </span>
-                                        <br>
-                                        <strong>210 كم / س</strong>
-
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="tab-pane fade" id="equipment" role="tabpanel" aria-labelledby="equipment-tab">
-                        التجهيزات
+                       <div class="row no-padding">
+                            <div class="col-md-4 mb-4">
+                                <h5>
+                                    {{ translate('وسائل الراحة') }}
+                                </h5>
+                                {{ $car->comfort }}
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <h5>
+                                    {{ translate('وسائل الامان') }}
+                                </h5>
+                                {{ $car->safety }}
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <h5>
+                                    {{ translate('النوافذ') }}
+                                </h5>
+                                {{ $car->windows }}
+                            </div>
+
+                            <div class="col-md-4 mb-4">
+                                <h5>
+                                    {{ translate('نظام الصوت') }}
+                                </h5>
+                                {{ $car->sound_system }}
+                            </div>
+                       </div>
                     </div>
                   </div>
             </div>

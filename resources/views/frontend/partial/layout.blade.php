@@ -24,6 +24,28 @@
         <script>
             $(document).ready(function(){
                 $('.select2').select2();
+
+                $('.addCompare').click(function() {
+                    var id = $(this).attr('carid');
+                    $.get('{{ url("add/to/compare") }}/'+id,function(res) {
+                        if(res == 1) {
+                            alert('success');
+                        } else {
+                            alert('failed');
+                        }
+                    });
+                });
+
+                $('.addFavorite').click(function() {
+                    var id = $(this).attr('carid');
+                    $.get('{{ url("add/to/favorite") }}/'+id,function(res) {
+                        if(res == 1) {
+                            alert('success');
+                        } else {
+                            alert('failed');
+                        }
+                    });
+                });
             });
         </script>
         @yield('js')
