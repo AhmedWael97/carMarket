@@ -6,27 +6,39 @@
         <div class="col-md-6">
             <div class="card card-home">
                 <div class="card-header">
-                    إبحث عن نوع السيارة المناسب لكـ
+                   {{ translate(' إبحث عن نوع السيارة المناسب لكـ') }}
                 </div>
                 <div class="card-body">
                     <form>
                         <div class="form-group mb-4">
                             <label>
-                                ماركة السيارة
+                               {{ translate('ماركة السيارة') }}
                             </label>
-                            <select class="form-select" name="model"></select>
+                            <select class="form-select makes select2" name="model">
+                                <option disabled selected> {{ translate('إختر ماركة السيارة') }} </option>
+                                @foreach($makes as $make)
+                                    <option value="{{ $make->id }}">
+                                        {{ $make->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group mb-4">
                             <label>
-                                موديل السيارة
+                               {{ translate('موديل السيارة') }}
                             </label>
-                            <select class="form-select" name="model"></select>
+                            <select class="form-select models select2" name="model"></select>
                         </div>
                         <div class="form-group mb-4">
                             <label>
-                                سنة الصنع
+                                {{ translate('سنة الصنع') }}
                             </label>
-                            <select class="form-select" name="model"></select>
+                            <select class="form-select select2" name="model">
+                                <option disabled selected> {{ translate('إختر سنة الصنع') }} </option>
+                                @for($i = Date('Y',strtotime("+1 year")) ; $i >= 2000  ; $i-- )
+                                    <option value="{{ $i }}"> {{ $i }}</option>
+                                @endfor
+                            </select>
                         </div>
                         <div class="form-group mb-4">
                             <button type="submit" class="btn btn-primary btn-block w-100">
@@ -42,16 +54,16 @@
 <section class="section-margin about-section">
     <div class="container text-center">
         <h5 class="text-bold">
-            نبذة عن
+           {{ translate('نبذة عن') }}
         </h5>
         <h2 class="text-black mb-4">
-            وليد للتجارة
+           {{ get_info('وليد للتجارة') }}
         </h2>
         <p class="text-grey">
-            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
+            {{ get_info('هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،') }}
         </p>
         <button type="button"  class="btn btn-primary btn-sm  border-circle">
-           إقــــرا المزيــــد عنــــا
+          {{ translate('إقــــرا المزيــــد عنــــا') }}
         </button>
     </div>
 </section>
@@ -59,31 +71,22 @@
     <div class="container">
         <div class="text-center">
             <h5 class="text-bold">
-                السيارات
+                {{ translate('السيارات') }}
             </h5>
             <h2 class="text-black mb-4">
-                الكثير من السيارات المتاحة
+                {{ translate('الكثير من السيارات المتاحة') }}
             </h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
+
+                @foreach($newest as $car)
+                    <div class="col-md-4">
+                        @include('frontend.partial.item', ['car' => $car])
+                    </div>
+                @endforeach
+
+
+
 
         </div>
     </div>
@@ -91,28 +94,28 @@
 <section class="section-margin">
     <div class="text-center">
         <h5 class="text-bold">
-            متابعة
+            {{ translate('متابعة') }}
         </h5>
         <h2 class="text-black mb-4">
-            تابع معنا كل جديد
+            {{ translate('تابع معنا كل جديد') }}
         </h2>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-6 pt-140">
                 <h3>
-                    قم بتسجيل البريد الالكتروني الخاص بكـ
+                   {{ translate('قم بتسجيل البريد الالكتروني الخاص بكـ') }}
                 </h3>
                 <div class="splitter"></div>
                 <p class="text-grey">
-                    عند تسجيل بريدك الالكتروني سوف يتم متابعة معك كل جديد من سيارات جديدة و من تغيير اسعار و تغيير اعداد السيارات بريديا
+                   {{ translate('عند تسجيل بريدك الالكتروني سوف يتم متابعة معك كل جديد من سيارات جديدة و من تغيير اسعار و تغيير اعداد السيارات بريديا') }}
                 </p>
                 <div class="form-group mt-2 mb-2">
                     <label>
-                        البريد الالكتروني
+                       {{ translate('البريد الالكتروني') }}
                     </label>
                     <input class="form-control" type="mail" name="email" required />
-                    <input type="submit" class="btn btn-primary btn-sm mt-2 float-left" value="إشترك الان" />
+                    <input type="submit" class="btn btn-primary btn-sm mt-2 float-left" value="{{ translate('إشترك الان') }}" />
                 </div>
             </div>
             <div class="col-md-6 text-center" >
@@ -125,50 +128,38 @@
     <div class="container">
         <div class="text-center">
             <h5 class="text-bold">
-                المبيعات
+                {{ translate('المبيعات') }}
             </h5>
             <h2 class="text-black mb-4">
-                أكثر السيارات مبيعا و بحثا
+                {{ translate('أكثر السيارات مبيعا و بحثا') }}
             </h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
+            @foreach($newest as $car)
+                    <div class="col-md-4">
+                        @include('frontend.partial.item', ['car' => $car])
+                    </div>
+            @endforeach
         </div>
     </div>
 </section>
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function(){
+            $('.makes').change(function() {
+                var value = $(this).val();
+                $.get('{{ url("/get/models/") }}/'+value, function(res) {
+                    $('.models').find('option').remove();
+                    $.each(res,function(i,item){
+                       $('.models').find('option')
+                       .end()
+                       .append('<option value='+item['id']+'>'+item['name']+'</option>')
+                       .val(item['id']);
+                    });
+                });
+            });
+        });
+    </script>
 @endsection
