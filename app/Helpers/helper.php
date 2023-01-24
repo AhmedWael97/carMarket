@@ -6,4 +6,10 @@ if(!function_exists('translate')) {
     }
 }
 
+if(!function_exists('get_info')) {
+    function get_info($term) {
+        return translate($term);
+    }
+}
+
 ?>
