@@ -3,12 +3,20 @@
         <img src="{{ url('/assets/imgs/bg-8.jpg') }}"  class="w-100"/>
         <div class="brands mb-2 ">
             <label class="badge bg-dark">
-                KIA - كيا
+                @if($car->make)
+                    {{ $car->make->name }}
+                @else
+                    {{ translate('لم يخصص ماركة') }}
+                @endif
             </label>
             <label class="badge bg-dark">
-                GRAND CERATO - جراند سيراتو
+                @if($car->model_type)
+                    {{ $car->model_type->name }}
+                @else
+                    {{ translate('لم يخصص موديل') }}
+                @endif
             </label>
-            @if($used == 1)
+            @if($car->used == 1)
             <label class="badge bg-light text-black">
                 مستخدم - USED
             </label>
@@ -19,50 +27,55 @@
             @endif
         </div>
         <div class="priceandactions">
-            @if($discount == 1)
+            @if($car->discount_price > 0)
             <label class="badge bg-warning text-line-through">
-                220000 ريال
+                {{ $car->price }} {{ get_currency() }}
             </label>
             <br>
             @endif
             <label class="badge bg-success">
-                195000 ريال
+                {{ $car->discount_price }} {{ get_currency() }}
             </label>
             <br>
             <label class="badge bg-primary">
-                قارن
+               <a  carId="{{ $car->id }}" class=" cursor-pointer text-decoration-none text-white addCompare">
+                {{ translate('أضف للمقارنة') }}
+               </a>
             </label>
             <br>
             <label class="badge bg-danger">
-                مفضل
+                <a href="#" carId="{{ $car->id }}" class="cursor-pointer text-decoration-none addFavorite text-white">
+                    {{ translate('أضف للمفضلة') }}
+                </a>
             </label>
         </div>
     </div>
     <div class="item-details prl-5 mt-2 mb-3">
         <h4 class="text-center">
            <b>
-                KIA GRAND CERATO 2022
+                <a href="{{ route('car-details',$car->id) }}" class="text-decoration-none ">
+                    {{ $car->name }}
+                </a>
            </b>
         </h4>
         <small class="text-grey d-block">
-            وصف سيارة دقيق لا يتعدي تقريبا 50 حرفا فقط حتي لا يزيد عن سطرين
-            وصف سيارة دقيق لا يتعدي تقريبا 50 حرفا فقط حتي لا يزيد عن سطرين
+           {{ substr($car->short_desc, 0, 50) }}
         </small>
         <div class="splitter"></div>
        <div class="row no-margin mb-2">
             <div class="col-md-6">
                 <small class="d-block">
-                    سنة الصنع : 2023
+                    {{ translate('سنة الصنع') }} : {{ $car->year }}
                  </small>
                  <small class="d-block">
-                    ناقل الحركة : اوتوماتيك
+                    {{ translate('ناقل الحركة') }} : {{ $car->transmittion }}
                  </small>
             </div>
             <div class="col-md-6">
                 <small class="d-block">
-                   سعة الماتور : 1600 CC
+                   {{ translate('سعة الماتور') }} : {{ $car->engine_capacity }}
                  </small>
-                 @if($used == 1)
+                 @if(false)
                  <small class="d-block">
                     كيلو متر : 1000 كم
                  </small>

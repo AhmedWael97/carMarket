@@ -20,9 +20,7 @@ Route::get('/test-excel','\App\Http\Controllers\CarController@export');
 Route::get('/compare', function () {
     return view('frontend.pages.compare');
 });
-Route::get('/car', function () {
-    return view('frontend.pages.car');
-});
+Route::get('/car/{id}','\App\Http\Controllers\HomeController@carDetails')->name('car-details');
 
 Route::get('/fill',function() {
     $data = '[{"brand": "Seat", "models": ["Alhambra", "Altea", "Altea XL", "Arosa", "Cordoba", "Cordoba Vario", "Exeo", "Ibiza", "Ibiza ST", "Exeo ST", "Leon", "Leon ST", "Inca", "Mii", "Toledo"]},

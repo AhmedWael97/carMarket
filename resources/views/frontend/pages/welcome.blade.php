@@ -78,24 +78,15 @@
             </h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
+
+                @foreach($newest as $car)
+                    <div class="col-md-4">
+                        @include('frontend.partial.item', ['car' => $car])
+                    </div>
+                @endforeach
+
+
+
 
         </div>
     </div>
@@ -137,49 +128,18 @@
     <div class="container">
         <div class="text-center">
             <h5 class="text-bold">
-                المبيعات
+                {{ translate('المبيعات') }}
             </h5>
             <h2 class="text-black mb-4">
-                أكثر السيارات مبيعا و بحثا
+                {{ translate('أكثر السيارات مبيعا و بحثا') }}
             </h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 0])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 1, 'discount' => 1])
-            </div>
-            <div class="col-md-4">
-                @include('frontend.partial.item', ['used' => 0, 'discount' => 1])
-            </div>
+            @foreach($newest as $car)
+                    <div class="col-md-4">
+                        @include('frontend.partial.item', ['car' => $car])
+                    </div>
+            @endforeach
         </div>
     </div>
 </section>

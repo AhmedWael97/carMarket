@@ -19,4 +19,6 @@ class CarController extends Controller
     {
         return Excel::download(new CarsExport, 'cars.xlsx');
     }
+
+
 }

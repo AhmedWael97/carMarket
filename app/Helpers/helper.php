@@ -12,4 +12,10 @@ if(!function_exists('get_info')) {
     }
 }
 
+if(!function_exists('get_currency')) {
+    function get_currency() {
+        return 'ريال سعودي';
+    }
+}
+
 ?>
