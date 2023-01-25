@@ -10,15 +10,15 @@ use App\Imports\CarsImport;
 
 class CarController extends Controller
 {
-    public function importExcel() {
-        Excel::import(new CarsImport, 'users.xlsx');
+    public function importExcel(Request $request) {
+        Excel::import(new CarsImport, $request->file('file')->store('temp'));
 
-        return redirect('/')->with('success', 'All good!');
+        return back()->with('success', 'All good!');
     }
 
     public function export()
     {
-        return Excel::download(new CarsExport, 'cars.xlsx');
+        return Excel::download(new CarsExport, 'cars.csv');
     }
 
 
@@ -26,6 +26,11 @@ class CarController extends Controller
     {
         $cars= car::all();
         return view('backend.cars.index')->with('cars',$cars);
+    }
+
+    public function createExcel() {
+        $cars= car::all();
+        return view('backend.cars.excel')->with('cars',$cars);
     }
 
     public function create()

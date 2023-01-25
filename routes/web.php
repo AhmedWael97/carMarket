@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', '\App\Http\Controllers\HomeController@home');
 Route::get('/get/models/{make_id}','\App\Http\Controllers\HomeController@getModelsForMake');
-// Route::get('/test-excel','\App\Http\Controllers\CarController@export');
+Route::get('/test-excel','\App\Http\Controllers\CarController@export');
 
 
 Route::get('/dashboard/car-index', 'App\Http\Controllers\CarController@index')->name('car-index');
 Route::get('/dashboard/car-create', 'App\Http\Controllers\CarController@create')->name('car-create');
+Route::get('/dashboard/car-excel', 'App\Http\Controllers\CarController@createExcel')->name('car-excel');
+Route::post('/dashboard/upload-excel', 'App\Http\Controllers\CarController@importExcel')->name('upload-excel');
+
 Route::post('/dashboard/car-store', 'App\Http\Controllers\CarController@store')->name('car-store');
 Route::get('/dashboard/car-edit/{id}', 'App\Http\Controllers\CarController@edit')->name('car-edit');
 Route::post('/dashboard/car-update', 'App\Http\Controllers\CarController@update')->name('car-update');
