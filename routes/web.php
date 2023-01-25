@@ -19,7 +19,6 @@ Route::get('/', function () {
 Route::get('/compare', function () {
     return view('frontend.pages.compare');
 });
-<<<<<<< HEAD
 
 
 
@@ -30,8 +29,6 @@ Route::post('/dashboard/car-store', 'App\Http\Controllers\CarsController@store')
 Route::get('/dashboard/car-edit/{id}', 'App\Http\Controllers\CarsController@edit')->name('car-edit');
 Route::post('/dashboard/car-update', 'App\Http\Controllers\CarsController@update')->name('car-update');
 Route::post('/dashboard/car-delete/{id}', 'App\Http\Controllers\CarsController@destroy')->name('car-delete');
-=======
 Route::get('/car', function () {
     return view('frontend.pages.car');
 });
->>>>>>> 24af5f5ae2d5e4e7dc0982e621e7c0d4f19abce6
