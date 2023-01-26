@@ -20,44 +20,11 @@
                                 <small class="text-danger d-block">
                                     {{ translate('يقبل فقط ملفات xlsx, csv') }}
                                 </small>
-                                <ul>
-                                    <li>
-                                        <small>
-                                             {{ translate('إحذف العناوين من الملف') }}
-                                        </small>
-                                     </li>
-                                     <li>
-                                        <small>
-                                             {{ translate('الاسعار و تاريخ الصنع يجب ان يكونوا ارقاما') }}
-                                        </small>
-                                     </li>
 
-                                    <li>
-                                       <small>
-                                            {{ translate('ادخل كود الماركة و ليس الاسم') }}
-                                       </small>
-                                    </li>
-
-                                    <li>
-                                        <small>
-                                            {{ translate('ادخل كود الموديل و ليس الاسم') }}
-                                        </small>
-                                    </li>
-                                    <li>
-                                        <small>
-                                             {{ translate('يمكن رؤية الاكواد للماركات و الموديلات من صفحة الموديلات و الماركات') }}
-                                        </small>
-                                     </li>
-                                     <li>
-                                        <small>
-                                             {{ translate('السيارة الجديدة يدخل قيمتها 0 و المستخدمة قيمتها 1') }}
-                                        </small>
-                                     </li>
-                                </ul>
                                 <input type="file" name="file" class="form-control mb-2" required>
                                 <input type="submit" class="btn btn-primary " value="{{ translate('رفع الملف') }}" >
-                                <a href="{{ url('/test-excel') }}" download class="btn btn-success">
-                                    {{ translate('تحميل ملف السيارات') }}
+                                <a href="{{ route('example-sheet') }}" download class="btn btn-success">
+                                    {{ translate('تحميل ملف المثال') }}
                                 </a>
                             </div>
                        </form>

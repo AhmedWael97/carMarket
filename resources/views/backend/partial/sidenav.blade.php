@@ -86,6 +86,54 @@
 
         <li class="nav-item">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                {{ translate('ماركات السيارات') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="{{route('makes-index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('جميع الماركات') }} </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('makes-create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('إضافة ماركة جديدة') }} </p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                {{ translate('موديلات السيارات') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="{{route('models-index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('جميع الموديلات') }} </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('models-create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('إضافة موديل جديد') }} </p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Cars

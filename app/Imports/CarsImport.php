@@ -4,19 +4,36 @@ namespace App\Imports;
 
 use App\Models\car;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class CarsImport implements ToModel
+class CarsImport implements ToModel, WithStartRow
 {
     /**
     * @param array $row
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+
+    public function startRow(): int
+    {
+        return 2;
+    }
     public function model(array $row)
     {
+        $make_id = 1;
+        $model = 1;
+        $make_id = \App\Models\make::find($row[0]);
+        if($make_id != null) {
+            $make_id = $make_id->id;
+        }
+
+        $model = \App\Models\models::find($row[1]);
+        if($model != null) {
+          $model_id = $model->id;
+        }
         return new car([
-            'make_id' => $row[0],
-            'model_id' => $row[1],
+            'make_id' => $make_id,
+            'model_id' => $model_id,
             'name' => $row[2],
             'price' => $row[3],
             'used' => $row[4],
@@ -26,8 +43,8 @@ class CarsImport implements ToModel
             'short_desc' => $row[8],
             'desc' => $row[9],
             'warranty' => $row[10],
-            'engine_capacity' => $row[11],
-            'horse_power' => $row[12],
+            'engine_capacity' => $row[12],
+            'horse_power' => $row[11],
             'maxmum_speed' => $row[13],
             'accleration' => $row[14],
             'transmittion' => $row[15],

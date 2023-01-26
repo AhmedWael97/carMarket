@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\car;
 use App\Imports\CarsImport;
-
+use Response;
 class CarController extends Controller
 {
     public function importExcel(Request $request) {
@@ -21,6 +21,10 @@ class CarController extends Controller
         return Excel::download(new CarsExport, 'cars.csv');
     }
 
+
+    public function downloadExampleSheet() {
+        return response()->download(public_path('/assets/exampleSheets/carExampeImportSheet.csv'),'exampleSheet.csv');
+    }
 
     public function index()
     {
