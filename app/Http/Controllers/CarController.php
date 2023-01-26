@@ -6,6 +6,7 @@ use App\Exports\CarsExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\car;
+use App\Models\models;
 use App\Imports\CarsImport;
 use Response;
 class CarController extends Controller
@@ -83,6 +84,38 @@ class CarController extends Controller
         $new_car->safety = $request->safety;
         $new_car->other_features = $request->other_features;
 
+        $new_car->save();
+        return back()->with('success' ,'Car Saved Succefully');
+
+    }
+
+    public function edit($id)
+    {
+        $car = car::where('id',$id);
+        return view('backend.cars.update')->with('car',$car);
+    }
+
+
+    public function index()
+    {
+        $cars= car::all();
+        return view('backend.cars.index')->with('cars',$cars);
+    }
+
+    public function create()
+    {
+       $models = models::all();
+       return view('backend.cars.create')->with('models',$models);
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'thumbnail_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+        $imageName = time().'.'.$request->thumbnail_image->extension();
+        $request->thumbnail_image->move(public_path('images/thumnails'), $imageName);
+        $new_car = new car($request->all());
         $new_car->save();
         return back()->with('success' ,'Car Saved Succefully');
 
