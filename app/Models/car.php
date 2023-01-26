@@ -45,7 +45,7 @@ class car extends Model
         'sound_system',
         'safety',
         'other',
-      
+        'qty',
         'thumbnail',
     ];
 

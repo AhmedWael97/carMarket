@@ -170,6 +170,10 @@
         left: 10px;
         bottom: 10px;
     }
+    .select2-selection  {
+        height: 35px !important;
+        padding: .375rem .75rem;
+    }
 </style>
 
 

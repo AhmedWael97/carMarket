@@ -10,7 +10,7 @@
 @endif
 
 <section class="content">
-   <div class="container-fluide">
+   <div class="container-fluide card mt-4">
         <div class="row">
          <div class="col-lg-12">
          <div class="card-body">
@@ -31,7 +31,7 @@
                     <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="exampleSelectRounded0">{{translate('موديل السيارة')}}</label>
-                                <select class="custom-select rounded-0" name="model_id" id="exampleSelectRounded0">
+                                <select class="custom-select select2 rounded-0" name="model_id" id="exampleSelectRounded0">
                                 @foreach($models as $model)
                                 <option value="{{$model->id}}">{{$model->name}}</option>
                                 @endforeach
@@ -66,9 +66,9 @@
                             <div class="form-group">
                                 <label for="used">{{translate('حالة السيارة')}}</label>
                                 <select class="custom-select rounded-0" name="used" id="exampleSelectRounded0">
-                                <option value="0">{{translate('مستعملة')}}</option> 
+                                <option value="0">{{translate('مستعملة')}}</option>
                                 <option value="1">{{translate('جديدة')}}</option>
-                                </select>                          
+                                </select>
                              </div>
                         </div>
                         <div class="col-lg-4">
@@ -101,9 +101,9 @@
                                 <input type="text" name="engine_capacity" class="form-control"  placeholder="{{translate('أدخل سعة موتور السيارة')}}">
                             </div>
                         </div>
-                       
-                        
-                       
+
+
+
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="horse_power">{{translate('عدد أحصنة الموتور')}}</label>
@@ -207,16 +207,16 @@
                                 <textarea class="form-control" rows="3" name="short_desc" placeholder="{{translate('أدخل وصف قصير للسيارة')}}"></textarea>
                             </div>
                         </div>
-                     
+
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label>{{translate('وصف  السيارة')}}</label>
                                 <textarea class="form-control" rows="3" name="desc" placeholder="{{translate('أدخل وصف  للسيارة')}}"></textarea>
                             </div>
                         </div>
-                    </div>              
+                    </div>
                 </div>
-            
+
             <div class="tab-pane fade" id="custom-content-below-profile" role="tabpanel" aria-labelledby="custom-content-below-profile-tab">
                <div class="row">
                <div class="col-lg-4">
@@ -265,13 +265,13 @@
                             </div>
                         </div>
                     </div>
-                    
+
                </div>
              </div>
             </div>
             <button class="btn btn-sm btn-primary" type="submit">{{translate('تسجيل')}}</button>
            </form>
-           
+
           </div>
          </div>
 

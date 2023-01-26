@@ -64,7 +64,8 @@ Route::get('/search','\App\Http\Controllers\HomeController@search')->name('searc
 Route::post('/subscribe-with-us','\App\Http\Controllers\HomeController@saveSubsriber')->name('subscribe');
 
 
-
+Route::get('/total-products','\App\Http\Controllers\HomeController@items')->name('items');
+Route::post('/filter','\App\Http\Controllers\HomeController@filter')->name('filter');
 //settings
 Route::get('/dashboard-settings','\App\Http\Controllers\SettingsController@index')->name('settings');
 Route::post('/dashboard-update','\App\Http\Controllers\SettingsController@update')->name('settings-update');

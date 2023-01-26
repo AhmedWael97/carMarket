@@ -141,6 +141,19 @@ class HomeController extends Controller
         ]);
     }
 
+    public function filter(Request $request) {
+        return view('frontend.pages.items')->with([
+            'items' => car::where(
+                [
+                    ['name' , 'like' , '%'.$request->car_name.'%'],
+                    ['year' ,'=', $request->year],
+                    ['price' , '>' , (int) $request->less_price],
+                    ['price' , '<' , (int) $request->max_price],
+                ]
+            )->get(),
+        ]);
+    }
+
     public function saveSubsriber(Request $request) {
         $ip = $request->ip();
         $data = \Location::get($ip);
@@ -152,5 +165,11 @@ class HomeController extends Controller
         ]);
         $newSubscriber->save();
         return back();
+    }
+
+    public function items() {
+        return view('frontend.pages.items')->with([
+            'items' => car::get(),
+        ]);
     }
 }

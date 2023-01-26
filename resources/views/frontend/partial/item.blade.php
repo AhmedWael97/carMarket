@@ -1,6 +1,10 @@
 <div class="card item-card mb-3">
     <div class="imgCap">
-        <img src="{{ url('/assets/imgs/bg-8.jpg') }}"  class="w-100"/>
+        @if ($car->thumbnail != null)
+        <img src="{{ url('/images') }}/{{ $car->thumbnail }}"  class="w-100"/>
+        @else
+            <img src="{{ url('/assets/imgs/bg-8.jpg') }}"  class="w-100"/>
+        @endif
         <div class="brands mb-2 ">
             <label class="badge bg-dark">
                 @if($car->make)
