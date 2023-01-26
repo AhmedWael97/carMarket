@@ -1,7 +1,7 @@
 @extends('backend.partial.layout')
 @section('content')
-<section class="content">
-   <div class="container-fluide">
+<section class="content mt-2">
+   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-12">
             <div class="card">
@@ -35,3 +35,5 @@
       </div>
    </div>
 </section>
+
+@endsection

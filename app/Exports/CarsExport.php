@@ -15,7 +15,7 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
     public function headings(): array
     {
         return [
-            'كود',
+
             'الماركة',
             'الموديل',
             'اسم السيارة',
@@ -25,6 +25,7 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
             'التخفيض من تاريخ',
             'التخفيض الي تاريخ',
             'وصف قصير',
+            'الوصف',
             'الضمان',
             'الماتور',
             'حصان ميكانيكي',
@@ -39,6 +40,7 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
             'العرض',
             'ارتفاع عن الارض',
             'قاعدة العجلات',
+            'حجم السيارة الخلفي',
             'عدد المقاعد',
             'نوع الجر',
             'عدد السلندرات',
@@ -47,19 +49,13 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
             'النوافذ',
             'نظام الصوت',
             'الامان',
-            'عدد المشاهدات',
-            'عدد المقارنات',
-            'عدد المفضل',
-            'حذف في',
-            'انشات في',
-            'تم التعديل في'
+            'الاخري'
         ];
     }
 
     public function map($car): array
     {
         return [
-            $car->id,
             $car->make->name,
             $car->model_type->name,
             $car->name,
@@ -69,6 +65,7 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
             $car->start_date,
             $car->end_date,
             $car->short_desc,
+            $car->desc,
             $car->warranty,
             $car->engine_capacity,
             $car->horse_power,
@@ -78,11 +75,12 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
             $car->year,
             $car->fuel,
             $car->fuel_usage,
-            $car->count,
+            $car->country,
             $car->length,
             $car->width,
             $car->ground_clearance,
             $car->wheel_base,
+            $car->trunk_size,
             $car->seats,
             $car->traction_type,
             $car->clynder,
@@ -91,12 +89,7 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
             $car->windows,
             $car->sound_system,
             $car->safety,
-            $car->views,
-            $car->compare,
-            $car->favorite,
-            $car->deleted_at,
-            $car->created_at,
-            $car->updated_at
+            $car->other,
         ];
     }
     public function collection()

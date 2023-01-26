@@ -11,11 +11,11 @@
         @include('backend.partial.header')
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
-        
-    <div class="wrapper">        
+
+    <div class="wrapper">
         @include('backend.partial.sidenav')
         <div class="content-wrapper">
-        @yield('content')
+            @yield('content')
         </div>
         @include('backend.partial.script')
     </div>

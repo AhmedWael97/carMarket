@@ -1,163 +1,274 @@
 @extends('frontend.partial.layout')
 @section('content')
     <div class="container">
+        @if(Session::has('compares'))
+        <?php
+            $ids = Session::get('compares');
+            $cars = \App\Models\car::whereIn('id',explode(',',$ids))->get();
+        ?>
         <table class="table table-bordered compare-table w-100 mt-2 mb-2">
             <thead>
                 <td class="w-25">
                     #
                 </td>
-                <td class="text-center">
-                    كيا سيراتو 2022
-                </td>
-                <td class="text-center">
-                    دودج رام 2022
-                </td>
-                <td class="text-center">
-                    دودج رام 2021
-                </td>
+                @foreach($cars as $car)
+                    <td> {{ $car->name }}</td>
+                @endforeach
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        الصورة
+                        {{ translate('الصورة') }}
                     </td>
-                    <td class="text-center">
-                        <img src="{{ url('assets/imgs/bg-8.jpg') }}"  class="w-100" />
-                    </td>
-                    <td class="text-center">
+                    @foreach($cars as $car)
+                        <td class="text-center">
                             <img src="{{ url('assets/imgs/bg-8.jpg') }}"  class="w-100" />
-                    </td>
-                    <td class="text-center">
-                        <img src="{{ url('assets/imgs/bg-8.jpg') }}"  class="w-100" />
-                    </td>
+                        </td>
+                    @endforeach
                 </tr>
                 <tr>
                     <td>
-                        السعر
+                        {{ translate('السعر') }}
                     </td>
-                    <td class="text-center">
-                        220000 ريال
-                    </td>
-                    <td class="text-center">
-                        5000000 ريال
-                    </td>
-                    <td class="text-center">
-                        400000 ريال
-                    </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->price }} {{ get_currency() }}
+                        </td>
+                    @endforeach
                 </tr>
                 <tr>
                     <td>
-                        سعة الماتور
+                        {{ translate('سعة الماتور') }}
                     </td>
-                    <td class="text-center">
-                        1600 CC
-                    </td>
-                    <td class="text-center">
-                        2000 CC
-                    </td>
-                    <td class="text-center">
-                        2000 CC
-                    </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->engine_capacity }}
+                        </td>
+                    @endforeach
+
                 </tr>
                 <tr>
                     <td>
-                        نوع الهيكل
+                        {{ translate('الضمان') }}
                     </td>
-                    <td class="text-center">
-                        سيدان
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->warranty }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('حصان ميكانيكي') }}
                     </td>
-                    <td class="text-center">
-                       نقل
-                    </td>
-                    <td class="text-center">
-                        نقل
-                     </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->horse_power }}
+                        </td>
+                    @endforeach
+
                 </tr>
                 <tr>
                     <td>
-                        نوع الوقود
+                        {{ translate('اقصي سرعة') }}
                     </td>
-                    <td class="text-center">
-                       95 - 92
-                    </td>
-                    <td class="text-center">
-                       95
-                    </td>
-                    <td class="text-center">
-                        95 - 92
-                     </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->maxmum_speed }}
+                        </td>
+                    @endforeach
+
                 </tr>
                 <tr>
                     <td>
-                        ناقل الحركة
+                        {{ translate('التسارع') }}
                     </td>
-                    <td class="text-center">
-                        مانيوال - اوتوماتيك
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->accleration }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('ناقل الحركة') }}
                     </td>
-                    <td class="text-center">
-                        اوتوماتيك
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->transmittion }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('سنة الصنع') }}
                     </td>
-                    <td class="text-center">
-                        اوتوماتيك
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->year }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('الوقود') }}
                     </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->fuel }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('إستهلاك الوقود') }}
+                    </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->fuel_usage }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('سعة خزان الوقود') }}
+                    </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->fuel_tank_capacity }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('بلد الصنع') }}
+                    </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->country }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('الطول') }}
+                    </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->length }}
+                        </td>
+                    @endforeach
+
                 </tr>
                 <tr>
                     <td>
-                        استهلاك الوقود
+                        {{ translate('العرض') }}
                     </td>
-                    <td class="text-center">
-                        6 لتر / 100 كيلو
-                    </td>
-                    <td class="text-center">
-                       10 لتر  / 100 كيلو
-                    </td>
-                    <td class="text-center">
-                        8 لتر  / 100 كيلو
-                     </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->width }}
+                        </td>
+                    @endforeach
+
                 </tr>
                 <tr>
                     <td>
-                        نوع الوقود
+                        {{ translate('ارتفاع عن الارض') }}
                     </td>
-                    <td class="text-center">
-                       95 - 92
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->ground_clearance }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('قاعدة العجلات') }}
                     </td>
-                    <td class="text-center">
-                       95
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->wheel_base }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('سعة السيارة') }}
                     </td>
-                    <td class="text-center">
-                        95 - 92
-                     </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->trunk_size }}
+                        </td>
+                    @endforeach
+
                 </tr>
                 <tr>
                     <td>
-                        ناقل الحركة
+                        {{ translate('عدد المقاعد') }}
                     </td>
-                    <td class="text-center">
-                        مانيوال - اوتوماتيك
-                    </td>
-                    <td class="text-center">
-                        اوتوماتيك
-                    </td>
-                    <td class="text-center">
-                        اوتوماتيك
-                    </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->seats }}
+                        </td>
+                    @endforeach
+
                 </tr>
                 <tr>
                     <td>
-                        استهلاك الوقود
+                        {{ translate('عزم السيارة') }}
                     </td>
-                    <td class="text-center">
-                        6 لتر / 100 كيلو
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->traction_type }}
+                        </td>
+                    @endforeach
+
+                </tr>
+
+                <tr>
+                    <td>
+                        {{ translate('عدد السلندرات') }}
                     </td>
-                    <td class="text-center">
-                       10 لتر  / 100 كيلو
-                    </td>
-                    <td class="text-center">
-                        8 لتر  / 100 كيلو
-                     </td>
+                    @foreach($cars as $car)
+                        <td class="text-center">
+                            {{ $car->clynder }}
+                        </td>
+                    @endforeach
+
                 </tr>
             </tbody>
         </table>
+        @else
+           <div class="text-center">
+                <h4 class="text-danger text-danger">
+                    {{ translate('لا توجد سيارات للمقارنة') }}
+                </h4>
+                <p>
+                    <a href="{{ url('/') }}" class="btn btn-link text-decoration-none">
+                        {{ translate('عودة الي الرئيسية') }}
+                    </a>
+                </p>
+           </div>
+        @endif
     </div>
 @endsection
