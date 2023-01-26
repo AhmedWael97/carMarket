@@ -130,7 +130,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Cars
+                {{translate('قسم السيارات')}}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -138,7 +138,7 @@
               <li class="nav-item">
                 <a href="{{route('car-index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Cars</p>
+                  <p>{{translate('جميع السيارات')}}</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -150,7 +150,7 @@
               <li class="nav-item">
                 <a href="{{route('car-create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create a New Car</p>
+                  <p>{{translate('إضافة سيارة جديدة')}}</p>
                 </a>
               </li>
             </ul>

@@ -27,7 +27,7 @@ Route::post('/dashboard/upload-excel', 'App\Http\Controllers\CarController@impor
 Route::post('/dashboard/car-store', 'App\Http\Controllers\CarController@store')->name('car-store');
 Route::get('/dashboard/car-edit/{id}', 'App\Http\Controllers\CarController@edit')->name('car-edit');
 Route::post('/dashboard/car-update', 'App\Http\Controllers\CarController@update')->name('car-update');
-Route::post('/dashboard/car-delete/{id}', 'App\Http\Controllers\CarController@destroy')->name('car-delete');
+Route::get('/dashboard/car-delete/{id}', 'App\Http\Controllers\CarController@destroy')->name('car-delete');
 Route::get('/download-example-sheet','App\Http\Controllers\CarController@downloadExampleSheet')->name('example-sheet');
 
 

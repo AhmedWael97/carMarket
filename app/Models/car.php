@@ -17,7 +17,6 @@ class car extends Model
         'price',
         'used',
         'qty',
-        'thumbnail_image',
         'discount_price',
         'start_date',
         'end_date',
@@ -46,7 +45,7 @@ class car extends Model
         'sound_system',
         'safety',
         'other',
-        'qty',
+      
         'thumbnail',
     ];
 

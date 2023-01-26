@@ -1,5 +1,14 @@
 @extends('backend.partial.layout')
 @section('content')
+@if (Session::has('success'))
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="fa fa-times"></i>
+        </button>
+        <strong>Success !</strong> {{ session('success') }}
+    </div>
+@endif
+
 <section class="content">
    <div class="container-fluide">
         <div class="row">
@@ -14,7 +23,7 @@
                 <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">{{translate('التجهيزات')}}</a>
               </li>
             </ul>
-            <form action="{{route('car-create')}}" method="post">
+            <form action="{{route('car-store')}}" method="post" enctype="multipart/form-data">
              @csrf
             <div class="tab-content" id="custom-content-below-tabContent">
                 <div class="tab-pane fade active show" id="custom-content-below-home" role="tabpanel" aria-labelledby="custom-content-below-home-tab">
@@ -37,11 +46,11 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="thumbnail_image">{{translate('صورة السيارة')}}</label>
+                                <label for="thumbnail">{{translate('صورة السيارة')}}</label>
                                 <div class="input-group">
                                 <div class="custom-file">
-                                    <input type="file" name="thumbnail_image"class="custom-file-input" id="thumbnail_image">
-                                    <label class="custom-file-label" for="thumbnail_image">{{translate('أختر صورة السيارة')}}</label>
+                                    <input type="file" name="thumbnail"class="custom-file-input" id="thumbnail">
+                                    <label class="custom-file-label" for="thumbnail">{{translate('أختر صورة السيارة')}}</label>
                                 </div>
                                 </div>
                             </div>
@@ -82,8 +91,8 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="warrenty">{{translate('ضمان السيارة')}}</label>
-                                <input type="text" name="warrenty" class="form-control"  placeholder="{{translate('أدخل ضمان السيارة')}}">
+                                <label for="warranty">{{translate('ضمان السيارة')}}</label>
+                                <input type="text" name="warranty" class="form-control"  placeholder="{{translate('أدخل ضمان السيارة')}}">
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -264,7 +273,6 @@
            </form>
            
           </div>
-<<<<<<< HEAD
          </div>
 
         </div>
@@ -276,10 +284,3 @@
 @endsection
 
 
-=======
-      </div>
-   </div>
-</section>
-
-@endsection
->>>>>>> cab198fa1646c864ead5b2b7c110b036e8a8c6ed
