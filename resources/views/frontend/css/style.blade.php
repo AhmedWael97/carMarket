@@ -158,5 +158,10 @@
     .fa-size-24 {
         font-size: 24px;
     }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
 </style>
+
 

@@ -28,7 +28,7 @@ class CarsController extends Controller
         $new_car = new cars();
         $new_car->model_id = $request->model_id;
         $new_car->brand_id = $request->brand_id;
-        $new_car->name = $request->name;    
+        $new_car->name = $request->name;
         $new_car->price = $request->price;
         $new_car->discount_price = $request->discount_price;
         $new_car->from_discount_date = $request->from_discount_date;
@@ -63,10 +63,10 @@ class CarsController extends Controller
         $new_car->sound_system = $request->sound_system;
         $new_car->safety = $request->safety;
         $new_car->other_features = $request->other_features;
-         
+
         $new_car->save();
         return back()->with('success' ,'Car Saved Succefully');
-    
+
     }
 
     public function edit($id)
@@ -75,13 +75,13 @@ class CarsController extends Controller
         return view('backend.cars.update')->with('car',$car);
     }
 
-   
+
     public function update(request $request)
     {
         $car = cars::findOrFail($request->id);
         $car->model_id = $request->model_id;
         $car->brand_id = $request->brand_id;
-        $car->name = $request->name;    
+        $car->name = $request->name;
         $car->price = $request->price;
         $car->discount_price = $request->discount_price;
         $car->from_discount_date = $request->from_discount_date;
@@ -123,7 +123,7 @@ class CarsController extends Controller
     public function destroy($id)
     {
         $car = cars::findOrFail($id);
-        $car->softDeletes();
+        $car->delete();
         return back()->with('success' ,'Car Deleted Succefully');
     }
 }

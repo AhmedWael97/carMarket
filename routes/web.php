@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.pages.welcome');
-});
+Route::get('/', '\App\Http\Controllers\HomeController@home');
+Route::get('/get/models/{make_id}','\App\Http\Controllers\HomeController@getModelsForMake');
+Route::get('/test-excel','\App\Http\Controllers\CarController@export');
+
 Route::get('/compare', function () {
     return view('frontend.pages.compare');
 });
