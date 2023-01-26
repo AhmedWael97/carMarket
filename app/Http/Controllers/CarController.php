@@ -6,6 +6,7 @@ use App\Exports\CarsExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\car;
+use App\Models\models;
 use App\Imports\CarsImport;
 
 class CarController extends Controller
@@ -30,50 +31,16 @@ class CarController extends Controller
 
     public function create()
     {
-       return view('backend.cars.create');
+       $models = models::all();
+       return view('backend.cars.create')->with('models',$models);
     }
 
     public function store(Request $request)
     {
-        $new_car = new car();
-        $new_car->model_id = $request->model_id;
-        $new_car->brand_id = $request->brand_id;
-        $new_car->name = $request->name;
-        $new_car->price = $request->price;
-        $new_car->discount_price = $request->discount_price;
-        $new_car->from_discount_date = $request->from_discount_date;
-        $new_car->to_discount_date = $request->to_discount_date;
-        $new_car->qty = $request->qty;
-        $new_car->warrenty = $request->warrenty;
-        $new_car->engine_capacity = $request->engine_capacity;
-        $new_car->horse_power = $request->horse_power;
-        $new_car->max_speed = $request->max_speed;
-        $new_car->acceleration = $request->acceleration;
-        $new_car->transmission_type = $request->transmission_type;
-        $new_car->fuel = $request->fuel;
-        $new_car->litre_per_km = $request->litre_per_km;
-        $new_car->country = $request->country;
-        $new_car->assembly_country = $request->assembly_country;
-        $new_car->length = $request->length;
-        $new_car->width = $request->width;
-        $new_car->height = $request->height;
-        $new_car->height_from_ground = $request->height_from_ground;
-        $new_car->wheele_speed = $request->wheele_speed;
-        $new_car->trunk_size = $request->trunk_size;
-        $new_car->no_of_seats = $request->no_of_seats;
-        $new_car->traction_type = $request->traction_type;
-        $new_car->no_of_cylinder = $request->no_of_cylinder;
-        $new_car->fuel_tank = $request->fuel_tank;
-        $new_car->capacity = $request->capacity;
-        $new_car->torque_of_newton = $request->torque_of_newton;
-        $new_car->insurance_price = $request->insurance_price;
-        $new_car->register_price = $request->register_price;
-        $new_car->comforts = $request->comforts;
-        $new_car->windows = $request->windows;
-        $new_car->sound_system = $request->sound_system;
-        $new_car->safety = $request->safety;
-        $new_car->other_features = $request->other_features;
-
+        $validatedData = $request->validate([
+            'thumbnail_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+        $new_car = new car($request->all());
         $new_car->save();
         return back()->with('success' ,'Car Saved Succefully');
 

@@ -16,6 +16,8 @@ class car extends Model
         'name',
         'price',
         'used',
+        'qty',
+        'thumbnail_image',
         'discount_price',
         'start_date',
         'end_date',

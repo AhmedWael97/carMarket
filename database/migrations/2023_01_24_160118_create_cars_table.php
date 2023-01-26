@@ -26,6 +26,7 @@ return new class extends Migration
 
             $table->string('name')->nullable();
             $table->double('price')->nullable();
+            $table->double('qty')->nullable();
             $table->boolean('used')->default(0)->comment('0 for new 1 for used');
             $table->double('discount_price')->default(0);
             $table->string('start_date')->nullable();
@@ -38,6 +39,7 @@ return new class extends Migration
             $table->string('maxmum_speed')->nullable();
             $table->string('accleration')->nullable();
             $table->string('transmittion')->nullable();
+            $table->longText('thumbnail_image')->nullable();
             $table->integer('year')->nullable();
             $table->string('fuel')->nullable();
             $table->string('fuel_usage')->nullable();
