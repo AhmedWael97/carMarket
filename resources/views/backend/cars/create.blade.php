@@ -264,6 +264,7 @@
            </form>
            
           </div>
+<<<<<<< HEAD
          </div>
 
         </div>
@@ -275,3 +276,10 @@
 @endsection
 
 
+=======
+      </div>
+   </div>
+</section>
+
+@endsection
+>>>>>>> cab198fa1646c864ead5b2b7c110b036e8a8c6ed

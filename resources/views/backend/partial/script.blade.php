@@ -22,8 +22,7 @@
 <script src="{{url('/')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{url('/')}}/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{url('/')}}/js/demo.js"></script>
+
 <script>
   $(function () {
     $("#example1").DataTable({

@@ -32,11 +32,17 @@
                 {{ $car->price }} {{ get_currency() }}
             </label>
             <br>
-            @endif
             <label class="badge bg-success">
                 {{ $car->discount_price }} {{ get_currency() }}
             </label>
             <br>
+            @else
+            <label class="badge bg-success">
+                {{ $car->price }} {{ get_currency() }}
+            </label>
+            <br>
+            @endif
+
             <label class="badge bg-primary">
                <a  carId="{{ $car->id }}" class=" cursor-pointer text-decoration-none text-white addCompare">
                 {{ translate('أضف للمقارنة') }}
@@ -44,7 +50,7 @@
             </label>
             <br>
             <label class="badge bg-danger">
-                <a href="#" carId="{{ $car->id }}" class="cursor-pointer text-decoration-none addFavorite text-white">
+                <a carId="{{ $car->id }}" class="cursor-pointer text-decoration-none addFavorite text-white">
                     {{ translate('أضف للمفضلة') }}
                 </a>
             </label>

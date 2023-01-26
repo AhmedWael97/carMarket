@@ -11,7 +11,7 @@ class car extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'make_id ',
+        'make_id',
         'model_id',
         'name',
         'price',
@@ -46,6 +46,8 @@ class car extends Model
         'sound_system',
         'safety',
         'other',
+        'qty',
+        'thumbnail',
     ];
 
     public function imgs() {

@@ -8,19 +8,37 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Models\car;
 use App\Models\models;
 use App\Imports\CarsImport;
-
+use Response;
 class CarController extends Controller
 {
-    public function importExcel() {
-        Excel::import(new CarsImport, 'users.xlsx');
+    public function importExcel(Request $request) {
+        Excel::import(new CarsImport, $request->file('file')->store('temp'));
 
-        return redirect('/')->with('success', 'All good!');
+        return back()->with('success', 'All good!');
     }
 
     public function export()
     {
-        return Excel::download(new CarsExport, 'cars.xlsx');
+        return Excel::download(new CarsExport, 'cars.csv');
     }
+
+
+    public function downloadExampleSheet() {
+        return response()->download(public_path('/assets/exampleSheets/carExampeImportSheet.csv'),'exampleSheet.csv');
+    }
+
+
+
+    public function createExcel() {
+        $cars= car::all();
+        return view('backend.cars.excel')->with('cars',$cars);
+    }
+
+
+
+
+
+
 
 
     public function index()
@@ -41,7 +59,7 @@ class CarController extends Controller
             'thumbnail_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
         $imageName = time().'.'.$request->thumbnail_image->extension();
-        $request->thumbnail_image->move(public_path('images/thumbnails'), $imageName);
+        $request->thumbnail_image->move(public_path('images/thumnails'), $imageName);
         $new_car = new car($request->all());
         $new_car->save();
         return redirect('/dashboard/car-create')->with('success' ,'Car Saved Succefully');

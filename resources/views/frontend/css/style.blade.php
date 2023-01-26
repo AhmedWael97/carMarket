@@ -7,6 +7,7 @@
 {{-- bootstrap v5.3 --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     body {
        background-color:  white;
@@ -59,8 +60,9 @@
         background-repeat: no-repeat;
     }
     .card-home {
-        margin: 85px;
+        margin: 15%;
         padding: 25px;
+        overflow: hidden;
     }
     label {
         margin-bottom:5px;
@@ -161,6 +163,12 @@
 
     .cursor-pointer {
         cursor: pointer;
+    }
+
+    .float-div  {
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
     }
 </style>
 

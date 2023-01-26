@@ -18,6 +18,7 @@
         @include('frontend.partial.navbar')
         @yield('content')
         @include('frontend.partial.footer')
+        @include('frontend.partial.floatPages')
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -27,9 +28,10 @@
 
                 $('.addCompare').click(function() {
                     var id = $(this).attr('carid');
+                    $('.shake-it-compare').removeClass('animate__shakeX');
                     $.get('{{ url("add/to/compare") }}/'+id,function(res) {
                         if(res == 1) {
-                            alert('success');
+                            $('.shake-it-compare').addClass('animate__shakeX');
                         } else {
                             alert('failed');
                         }
@@ -38,9 +40,10 @@
 
                 $('.addFavorite').click(function() {
                     var id = $(this).attr('carid');
+                    $('.shake-it-fav').removeClass('animate__shakeX');
                     $.get('{{ url("add/to/favorite") }}/'+id,function(res) {
                         if(res == 1) {
-                            alert('success');
+                            $('.shake-it-fav').addClass('animate__shakeX');
                         } else {
                             alert('failed');
                         }

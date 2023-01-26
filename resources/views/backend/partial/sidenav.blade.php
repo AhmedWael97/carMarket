@@ -54,12 +54,12 @@
             </div>
             <!-- Message End -->
           </a>
-      
-        
+
+
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
-     
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -77,7 +77,55 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                {{ translate('ماركات السيارات') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="{{route('makes-index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('جميع الماركات') }} </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('makes-create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('إضافة ماركة جديدة') }} </p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                {{ translate('موديلات السيارات') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+              <li class="nav-item">
+                <a href="{{route('models-index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('جميع الموديلات') }} </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('models-create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> {{ translate('إضافة موديل جديد') }} </p>
+                </a>
+              </li>
+            </ul>
+        </li>
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -94,6 +142,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('car-excel')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Excel Ctrl</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{route('car-create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Create a New Car</p>
@@ -101,12 +155,12 @@
               </li>
             </ul>
           </li>
-         
-       
-         
-         
-         
-         
+
+
+
+
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

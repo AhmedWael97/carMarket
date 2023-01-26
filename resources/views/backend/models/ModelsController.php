@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\models;
-use App\Models\make;
 class ModelsController extends Controller
 {
     public function index() {
-        return view('backend.models.index')->with('models' , models::paginate(15));
+        return view('backend.models.index')->with('makes' , models::paginate(15));
     }
 
     public function create() {
-        return view('backend.models.create')->with('makes' , make::get());
+        return view('backend.models.create');
     }
 
     public function store(Request $request) {
@@ -25,9 +24,7 @@ class ModelsController extends Controller
     }
 
     public function edit($id) {
-        return view('backend.models.edit')->with(
-            ['model' => models::findOrFail($id), 'makes' => make::get()]
-        );
+        return view('backend.models.edit')->with('make' , models::findOrFail($id));
     }
 
     public function update(Request $request) {
