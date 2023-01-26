@@ -55,7 +55,7 @@
         margin-top: 15%;
     }
     .main-section{
-        background-image: url('{{ url("/assets/imgs/bg-8.jpg") }}');
+        background-image: url('{{ url("/assets/settings/")."/". get_settings("section_one_img") }}');
         background-size: cover;
         background-repeat: no-repeat;
     }

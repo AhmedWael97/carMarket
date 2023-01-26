@@ -127,6 +127,16 @@
             </ul>
         </li>
         <li class="nav-item">
+            <a href="{{ route('settings') }}" class="nav-link">
+              <i class="nav-icon fas fa-gear"></i>
+              <p>
+                {{ translate('اعدادات الموقع') }}
+
+              </p>
+            </a>
+
+        </li>
+        <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>

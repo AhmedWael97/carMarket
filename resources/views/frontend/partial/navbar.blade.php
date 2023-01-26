@@ -2,17 +2,17 @@
     <div class="row">
         <div class="col-md-6">
             <span>
-                02012345678912 <i class="bi bi-phone"></i> - 02012345678912 <i class="bi bi-telephone"></i>
+                {{ get_settings("phone") }} <i class="bi bi-phone"></i> - {{ get_settings("mobile") }} <i class="bi bi-telephone"></i>
             </span>
         </div>
         <div class="col-md-6 text-start">
-             15 st location city, country <i class="bi bi-geo-alt"></i>
+             {{ get_settings("location") }} <i class="bi bi-geo-alt"></i>
         </div>
     </div>
 </div>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand font-weight-800" href="{{ url('/') }}">ولـيد للتجارة</a>
+      <a class="navbar-brand font-weight-800" href="{{ url('/') }}"> {{ get_settings("site_name") }} </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
