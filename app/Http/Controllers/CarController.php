@@ -40,9 +40,11 @@ class CarController extends Controller
         $validatedData = $request->validate([
             'thumbnail_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
+        $imageName = time().'.'.$request->thumbnail_image->extension();
+        $request->thumbnail_image->move(public_path('images/thumbnails'), $imageName);
         $new_car = new car($request->all());
         $new_car->save();
-        return back()->with('success' ,'Car Saved Succefully');
+        return redirect('/dashboard/car-create')->with('success' ,'Car Saved Succefully');
 
     }
 

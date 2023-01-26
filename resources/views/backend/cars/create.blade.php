@@ -37,6 +37,18 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
+                                <label for="thumbnail_image">{{translate('صورة السيارة')}}</label>
+                                <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="thumbnail_image"class="custom-file-input" id="thumbnail_image">
+                                    <label class="custom-file-label" for="thumbnail_image">{{translate('أختر صورة السيارة')}}</label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="form-group">
                                 <label for="name">{{translate('سعر السيارة')}}</label>
                                 <input type="double" name="price" class="form-control" id="price" placeholder="{{translate('أدخل سعر السيارة')}}">
                             </div>
@@ -44,8 +56,11 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="used">{{translate('حالة السيارة')}}</label>
-                                <input type="text" name="used" class="form-control" id="used" placeholder="{{translate('مستعملة\جديدة')}}">
-                            </div>
+                                <select class="custom-select rounded-0" name="used" id="exampleSelectRounded0">
+                                <option value="0">{{translate('مستعملة')}}</option> 
+                                <option value="1">{{translate('جديدة')}}</option>
+                                </select>                          
+                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
@@ -65,19 +80,6 @@
                                 <input type="date" name="end_date" class="form-control" id="start_date" placeholder="{{translate('أدخل تاريخ انتهاء الخصم علي السيارة')}}">
                             </div>
                         </div>
-
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label>{{translate('وصف قصير للسيارة')}}</label>
-                                <textarea class="form-control" rows="3" name="short_desc" placeholder="{{translate('أدخل وصف قصير للسيارة')}}"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label>{{translate('وصف  السيارة')}}</label>
-                                <textarea class="form-control" rows="3" name="desc" placeholder="{{translate('أدخل وصف  للسيارة')}}"></textarea>
-                            </div>
-                        </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="warrenty">{{translate('ضمان السيارة')}}</label>
@@ -90,6 +92,9 @@
                                 <input type="text" name="engine_capacity" class="form-control"  placeholder="{{translate('أدخل سعة موتور السيارة')}}">
                             </div>
                         </div>
+                       
+                        
+                       
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="horse_power">{{translate('عدد أحصنة الموتور')}}</label>
@@ -185,6 +190,19 @@
                             <div class="form-group">
                                 <label for="fuel_tank_capacity">{{translate('سعة خزان الوقود')}}</label>
                                 <input type="text" name="fuel_tank_capacity" class="form-control"  placeholder="{{translate('أدخل  سعة خزان الوقود ')}}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>{{translate('وصف قصير للسيارة')}}</label>
+                                <textarea class="form-control" rows="3" name="short_desc" placeholder="{{translate('أدخل وصف قصير للسيارة')}}"></textarea>
+                            </div>
+                        </div>
+                     
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>{{translate('وصف  السيارة')}}</label>
+                                <textarea class="form-control" rows="3" name="desc" placeholder="{{translate('أدخل وصف  للسيارة')}}"></textarea>
                             </div>
                         </div>
                     </div>              
