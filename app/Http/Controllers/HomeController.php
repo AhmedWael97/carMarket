@@ -35,7 +35,7 @@ class HomeController extends Controller
 
             if(Session::has('compares')){
                 $value = Session::get('compares');
-                if(count(explode(",",$value)) <= 3) {
+                if(count(explode(",",$value)) <= 6) {
                     if(!in_array($id,explode(",",$value))) {
                         $value = $value . ',' . $id;
                         Session::put('compares',$value);

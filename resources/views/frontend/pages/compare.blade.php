@@ -1,19 +1,19 @@
 @extends('frontend.partial.layout')
 @section('content')
-    <div class="container">
+    <div class="container"  style="overflow-x: scroll;">
         @if(Session::has('compares'))
         <?php
             $ids = Session::get('compares');
             $cars = \App\Models\car::whereIn('id',explode(',',$ids))->get();
         ?>
-        <table class="table table-bordered compare-table w-100 mt-2 mb-2">
+        <table class="table table-bordered compare-table mt-2 mb-2">
             <thead>
-                <td class="w-25">
+                <td style="width: 10%">
                     #
                 </td>
                 @foreach($cars as $car)
-                    <td>
-                         {{ $car->name }}
+                    <td >
+                         <small> {{ $car->name }} </small>
                          <a href="{{ route('rm-compare',$car->id) }}" class="btn btn-danger text-white btn-sm float-left"> <i class="bi bi-trash"></i> </a>
                     </td>
                 @endforeach

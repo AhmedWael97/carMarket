@@ -20,7 +20,12 @@ class CarsImport implements ToModel, WithStartRow
     }
     public function model(array $row)
     {
-
+        $car = car::where('name',$row[2])->first();
+        if($car != null) {
+            $car->qty = $car->qty +1;
+            $car->save();
+            return $car;
+        } else {
 
         $make_id = 1;
         $model = 1;
@@ -69,5 +74,6 @@ class CarsImport implements ToModel, WithStartRow
             'safety' => $row[32],
             'other' => $row[33],
         ]);
+        }
     }
 }

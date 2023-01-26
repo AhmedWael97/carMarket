@@ -18,6 +18,7 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
 
             'الماركة',
             'الموديل',
+            'العدد',
             'اسم السيارة',
             'السعر',
             'مستخدمة ؟',
@@ -58,6 +59,7 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
         return [
             $car->make->name,
             $car->model_type->name,
+            $car->qty,
             $car->name,
             $car->price,
             $car->used == 0 ? 'جديد' : 'مستعمل' ,
