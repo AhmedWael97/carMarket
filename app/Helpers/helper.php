@@ -19,6 +19,17 @@ if(!function_exists('get_currency')) {
     }
 }
 
+if(!function_exists('get_settings')) {
+    function get_settings($col_name) {
+        $settings = \App\Models\Settings::first();
+        if($settings != null) {
+            return $settings->$col_name;
+        } else {
+            return "";
+        }
+    }
+}
+
 if(!function_exists('car_details')){
     function car_details(car $car) {
         return [

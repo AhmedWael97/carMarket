@@ -57,14 +57,14 @@
            {{ translate('نبذة عن') }}
         </h5>
         <h2 class="text-black mb-4">
-           {{ get_info('وليد للتجارة') }}
+           {{ get_settings("site_name") }}
         </h2>
         <p class="text-grey">
-            {{ get_info('هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،') }}
+            {{ get_settings("description")}}
         </p>
-        <button type="button"  class="btn btn-primary btn-sm  border-circle">
+        {{-- <button type="button"  class="btn btn-primary btn-sm  border-circle">
           {{ translate('إقــــرا المزيــــد عنــــا') }}
-        </button>
+        </button> --}}
     </div>
 </section>
 <section class="section-margin ProductsSection">
@@ -104,11 +104,11 @@
         <div class="row">
             <div class="col-md-6 pt-140">
                 <h3>
-                   {{ translate('قم بتسجيل البريد الالكتروني الخاص بكـ') }}
+                   {{ get_settings('section_subscribe_title') }}
                 </h3>
                 <div class="splitter"></div>
                 <p class="text-grey">
-                   {{ translate('عند تسجيل بريدك الالكتروني سوف يتم متابعة معك كل جديد من سيارات جديدة و من تغيير اسعار و تغيير اعداد السيارات بريديا') }}
+                    {{ get_settings('section_subscribe_desc') }}
                 </p>
                 <div class="form-group mt-2 mb-2">
                     <form method="post" action="{{ route('subscribe') }}">
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="col-md-6 text-center" >
-                <img src="{{ url('assets/imgs/email.svg') }}" class="w-100" />
+                <img src="{{ url('assets/settings/') }}/{{ get_settings('section_subscribe_img') }}" class="w-100" />
             </div>
         </div>
     </div>
