@@ -182,6 +182,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -211,6 +213,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Location' => Stevebauman\Location\Facades\Location::class,
     ])->toArray(),
 
 ];

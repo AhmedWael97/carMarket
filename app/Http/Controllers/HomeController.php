@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\make;
 use App\Models\models;
 use App\Models\car;
+use App\Models\subscribers;
 use Session;
+use Location;
+
 class HomeController extends Controller
 {
     public function home() {
@@ -48,6 +51,31 @@ class HomeController extends Controller
         return 1;
     }
 
+    public function removeCompare($id) {
+
+            if(Session::has('compares')){
+                $value = Session::get('compares');
+                $ids = explode(",",$value);
+                if(count($ids) == 1  && in_array($id,$ids)) {
+                    Session::forget('compares');
+                } elseif (count($ids) > 1 && in_array($id,$ids)) {
+                    $text = '';
+                    foreach($ids as $key=>$el) {
+                     if($el != $id) {
+                        if($key == 0) {
+                            $text = $el;
+                        } else {
+                            $text = $text . ',' . $el;
+                        }
+                     }
+                    }
+                     Session::put('compares',$text);
+                }
+            }
+
+            return back();
+    }
+
     public function addToFavorite($id) {
         $car = car::findOrFail($id);
 
@@ -63,6 +91,34 @@ class HomeController extends Controller
 
         return 1;
     }
+
+    public function removeFavorite($id) {
+
+        if(Session::has('favs')){
+            $value = Session::get('favs');
+            $ids = explode(",",$value);
+            if(count($ids) == 1  && in_array($id,$ids)) {
+                Session::forget('favs');
+            } elseif (count($ids) > 1 && in_array($id,$ids)) {
+                $text = '';
+                foreach($ids as $key=>$el) {
+                 if($el != $id) {
+                    if($key == 0) {
+                        $text = $el;
+                    } else {
+                        $text = $text . ',' . $el;
+                    }
+                 }
+                }
+                 Session::put('favs',$text);
+            }
+        }
+
+        return back();
+
+        return back();
+    }
+
 
     public function comparePage() {
         return view('frontend.pages.compare');
@@ -83,5 +139,18 @@ class HomeController extends Controller
             'cars' => $cars,
             'myYouLike' => $mayYouLike,
         ]);
+    }
+
+    public function saveSubsriber(Request $request) {
+        $ip = $request->ip();
+        $data = \Location::get($ip);
+        $newSubscriber = new subscribers([
+            'ip' => $ip,
+            'email' => $request->email,
+            'country' =>$data ? $data->countryName : null,
+            'city' => $data ? $data->cityName : null,
+        ]);
+        $newSubscriber->save();
+        return back();
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,11 +50,14 @@ Route::get('/models-delete/{id}','\App\Http\Controllers\ModelsController@destroy
 
 
 Route::get('/add/to/compare/{id}','\App\Http\Controllers\HomeController@addToCompare');
+Route::get('/remove/compare/{id}','\App\Http\Controllers\HomeController@removeCompare')->name('rm-compare');
 Route::get('/add/to/favorite/{id}','\App\Http\Controllers\HomeController@addToFavorite');
+Route::get('/remove/favorite/{id}','\App\Http\Controllers\HomeController@removeFavorite')->name('rm-favorite');
 
 Route::get('/compare-page','\App\Http\Controllers\HomeController@comparePage')->name('compare-page');
 Route::get('/favorite-page','\App\Http\Controllers\HomeController@favPage')->name('fav-page');
 Route::get('/search','\App\Http\Controllers\HomeController@search')->name('search');
 
 
+Route::post('/subscribe-with-us','\App\Http\Controllers\HomeController@saveSubsriber')->name('subscribe');
 

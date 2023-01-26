@@ -20,6 +20,8 @@ class CarsImport implements ToModel, WithStartRow
     }
     public function model(array $row)
     {
+
+
         $make_id = 1;
         $model = 1;
         $make_id = \App\Models\make::find($row[0]);

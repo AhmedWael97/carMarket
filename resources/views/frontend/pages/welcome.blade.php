@@ -111,11 +111,15 @@
                    {{ translate('عند تسجيل بريدك الالكتروني سوف يتم متابعة معك كل جديد من سيارات جديدة و من تغيير اسعار و تغيير اعداد السيارات بريديا') }}
                 </p>
                 <div class="form-group mt-2 mb-2">
-                    <label>
-                       {{ translate('البريد الالكتروني') }}
-                    </label>
-                    <input class="form-control" type="mail" name="email" required />
-                    <input type="submit" class="btn btn-primary btn-sm mt-2 float-left" value="{{ translate('إشترك الان') }}" />
+                    <form method="post" action="{{ route('subscribe') }}">
+                        @csrf
+                        <label>
+                            {{ translate('البريد الالكتروني') }}
+                         </label>
+                         <input class="form-control" type="mail" name="email" required />
+                         <input type="submit" class="btn btn-primary btn-sm mt-2 float-left" value="{{ translate('إشترك الان') }}" />
+
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 text-center" >

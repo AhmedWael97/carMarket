@@ -12,7 +12,10 @@
                     #
                 </td>
                 @foreach($cars as $car)
-                    <td> {{ $car->name }}</td>
+                    <td>
+                         {{ $car->name }}
+                         <a href="{{ route('rm-compare',$car->id) }}" class="btn btn-danger text-white btn-sm float-left"> <i class="bi bi-trash"></i> </a>
+                    </td>
                 @endforeach
             </thead>
             <tbody>
