@@ -7,6 +7,9 @@ use App\Models\models;
 use App\Models\make;
 class ModelsController extends Controller
 {
+     public function __construct() {
+        $this->middleware('auth');
+    }
     public function index() {
         return view('backend.models.index')->with('models' , models::paginate(15));
     }
