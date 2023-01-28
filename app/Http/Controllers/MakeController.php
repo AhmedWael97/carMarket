@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\make;
 class MakeController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     public function index() {
         return view('backend.makes.index')->with('makes' , make::paginate(15));
     }

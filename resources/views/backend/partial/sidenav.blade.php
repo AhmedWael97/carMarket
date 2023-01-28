@@ -11,53 +11,14 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
+
 
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
+      <li class="nav-item">
+        <a href="{{ route('logout-custom') }}" class="nav-link">
+          {{ translate("خروج") }}
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="{{url('/')}}/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
 
-
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
       </li>
 
     </ul>
@@ -78,6 +39,60 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-lock"></i>
+                  <p>
+                    {{ translate('الوظائف و الاوذنات') }}
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                @can('Role View')
+                <li class="nav-item">
+                    <a href="{{route('role-index')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> {{ translate('جميع الوظائف') }} </p>
+                    </a>
+                  </li>
+                  @endcan
+                  @can('Role Create')
+                  <li class="nav-item">
+                    <a href="{{route('role-create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> {{ translate('إضافة وظئفة جديدة') }} </p>
+                    </a>
+                  </li>
+                  @endcan
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    {{ translate('المستخدمين') }}
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview" style="display: none;">
+                @can('Users View')
+                <li class="nav-item">
+                    <a href="{{route('user-index')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> {{ translate('جميع المستخدمين') }} </p>
+                    </a>
+                  </li>
+                  @endcan
+                  @can('Users Create')
+                  <li class="nav-item">
+                    <a href="{{route('user-create')}}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> {{ translate('إضافة مستخدم جديد ') }} </p>
+                    </a>
+                  </li>
+                  @endcan
+                </ul>
+            </li>
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>

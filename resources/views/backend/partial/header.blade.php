@@ -1,7 +1,7 @@
   <meta charset="utf-8" dir="rtl">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Car Market Dashboard</title>
-  
+  <title>{{ get_settings("site_name") }} - {{ translate("لوحة التحكم") }}</title>
+
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css">
@@ -17,5 +17,5 @@
   <!-- Theme style -->
 
   <link rel="stylesheet" href="{{url('/')}}/css/adminlte.min.css">
-  
+
 

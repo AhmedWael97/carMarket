@@ -11,6 +11,11 @@ use App\Imports\CarsImport;
 use Response;
 class CarController extends Controller
 {
+
+     public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function importExcel(Request $request) {
         Excel::import(new CarsImport, $request->file('file')->store('temp'));
 
@@ -56,8 +61,8 @@ class CarController extends Controller
     public function store(Request $request)
     {
         $new_car = new car($request->all());
-       
-        $imageName = time().'.'.$request->thumbnail->extension();   
+
+        $imageName = time().'.'.$request->thumbnail->extension();
         $request->thumbnail->move(public_path('images'), $imageName);
         $new_car->thumbnail = $imageName ;
         $new_car->save();
@@ -77,7 +82,7 @@ class CarController extends Controller
     {
         $car = car::findOrFail($request->id);
         $car->update($request->all());
-        $imageName = time().'.'.$request->thumbnail->extension();   
+        $imageName = time().'.'.$request->thumbnail->extension();
         $request->thumbnail->move(public_path('images'), $imageName);
         $car->thumbnail = $imageName ;
         $car->save();

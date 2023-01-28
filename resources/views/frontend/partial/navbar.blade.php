@@ -23,6 +23,10 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="{{ route('items') }}"> المنتجات </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="{{ route('compare-page') }}"> المقارنة </a>
           </li>
 
