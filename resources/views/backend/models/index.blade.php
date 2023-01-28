@@ -9,9 +9,11 @@
                 <h3 class="card-title">
                     {{ translate('جميع الموديلات') }}
                 </h3>
+                @can('Model Create')
                 <a href="{{ route('models-create') }}" class="btn btn-primary btn-sm float-right">
                     {{ translate('إضافة موديل جديد') }}
                 </a>
+                @endcan
               </div>
 
               <div class="card-body">
@@ -49,12 +51,16 @@
                                     {{ $model->make ? $model->make->name : '' }}
                                </td>
                                <td>
+                                    @can('Model Edit')
                                     <a href="{{ route('models-edit',$model->id) }}" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    @endcan
+                                    @can('Model Delete')
                                     <a href="{{ route('models-delete',$model->id) }}" class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </a>
+                                    @endcan
                                </td>
                             </tr>
 

@@ -9,9 +9,11 @@
                 <h3 class="card-title">
                     {{ translate('جميع الماركات') }}
                 </h3>
+                @can('Make Create')
                 <a href="{{ route('makes-create') }}" class="btn btn-primary btn-sm float-right">
                     {{ translate('إضافة ماركة جديدة') }}
                 </a>
+                @endcan
               </div>
 
               <div class="card-body">
@@ -51,12 +53,16 @@
                                     @endif
                                </td>
                                <td>
+                                     @can('Make Edit')
                                     <a href="{{ route('makes-edit',$make->id) }}" class="btn btn-warning btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    @endcan
+                                    @can('Make Delete')
                                     <a href="{{ route('makes-delete',$make->id) }}" class="btn btn-danger btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </a>
+                                    @endcan
                                </td>
                             </tr>
 

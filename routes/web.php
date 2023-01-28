@@ -34,12 +34,12 @@ Route::prefix('/admin/dashboard')->group(function($router){
     Route::get('/role-delete/{id}','App\Http\Controllers\RoleController@destroy')->name('role-delete');
 
 
-    Route::get('/user-index','App\Http\Controllers\UserController@index')->name('user-index');
-    Route::get('/user-create','App\Http\Controllers\UserController@create')->name('user-create');
-    Route::post('/user-store','App\Http\Controllers\UserController@store')->name('user-store');
-    Route::get('/user-edit/{id}','App\Http\Controllers\UserController@edit')->name('user-edit');
-    Route::post('/user-update','App\Http\Controllers\UserController@update')->name('user-update');
-    Route::get('/user-delete/{id}','App\Http\Controllers\UserController@destroy')->name('user-delete');
+    Route::get('/user-index','App\Http\Controllers\UsersController@index')->name('user-index');
+    Route::get('/user-create','App\Http\Controllers\UsersController@create')->name('user-create');
+    Route::post('/user-store','App\Http\Controllers\UsersController@store')->name('user-store');
+    Route::get('/user-edit/{id}','App\Http\Controllers\UsersController@edit')->name('user-edit');
+    Route::post('/user-update','App\Http\Controllers\UsersController@update')->name('user-update');
+    Route::get('/user-delete/{id}','App\Http\Controllers\UsersController@destroy')->name('user-delete');
 
 
     Route::get('car-index', 'App\Http\Controllers\CarController@index')->name('car-index');

@@ -102,19 +102,22 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: none;">
+            @can('Make View')
               <li class="nav-item">
                 <a href="{{route('makes-index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> {{ translate('جميع الماركات') }} </p>
                 </a>
               </li>
-
+            @endcan
+            @can('Make Create')
               <li class="nav-item">
                 <a href="{{route('makes-create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> {{ translate('إضافة ماركة جديدة') }} </p>
                 </a>
               </li>
+            @endcan
             </ul>
         </li>
         <li class="nav-item">
@@ -126,31 +129,25 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: none;">
+            @can('Model View')
               <li class="nav-item">
                 <a href="{{route('models-index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> {{ translate('جميع الموديلات') }} </p>
                 </a>
               </li>
-
+            @endcan
+            @can('Model Create')
               <li class="nav-item">
                 <a href="{{route('models-create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> {{ translate('إضافة موديل جديد') }} </p>
                 </a>
               </li>
+            @endcan
             </ul>
         </li>
-        <li class="nav-item">
-            <a href="{{ route('settings') }}" class="nav-link">
-              <i class="nav-icon fas fa-gear"></i>
-              <p>
-                {{ translate('اعدادات الموقع') }}
-
-              </p>
-            </a>
-
-        </li>
+        
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -160,29 +157,46 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: none;">
+            @can('Cars View')
               <li class="nav-item">
                 <a href="{{route('car-index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>{{translate('جميع السيارات')}}</p>
                 </a>
               </li>
+            @endcan
+            @can('Cars Create')
               <li class="nav-item">
                 <a href="{{route('car-excel')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Excel Ctrl</p>
                 </a>
               </li>
+            @endcan
+            @can('Cars Create')
               <li class="nav-item">
                 <a href="{{route('car-create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>{{translate('إضافة سيارة جديدة')}}</p>
                 </a>
               </li>
+            @endcan
             </ul>
+            
           </li>
+         
+            <li class="nav-item">
+            @can('Settings Edit')
+            <a href="{{ route('settings') }}" class="nav-link">
+                  <i class="nav-icon fas fa-wrench"></i>  
+                  <p>
+                    {{ translate('اعدادات الموقع') }}
+                   
+                  </p>
+                </a>
+            @endcan
 
-
-
+            </li>
 
 
 

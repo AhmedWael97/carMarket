@@ -18,7 +18,8 @@ class UsersController extends Controller
     }
 
     public function index() {
-        return view('backend.users.index')->with('users',User::get());
+        $roles = Role::all();
+        return view('backend.users.index')->with(['users'=>User::get() ,'roles' =>$roles]);
     }
 
     public function create() {
@@ -36,9 +37,11 @@ class UsersController extends Controller
         $role = Role::findOrFail($request->role_id);
         $newUser = User::create([
             'name' => $request->name,
+            'password' => Hash::make($request->password),
             'email' => $request->email,
-            'passowrd' => Hash::make($request->password),
+            
         ]);
+       
         $newUser->save();
         $newUser->assignRole($role);
         return redirect()->route('user-index')->with('success',translate('تم الحفظ بنجاح'));
@@ -61,7 +64,7 @@ class UsersController extends Controller
         ]);
 
         $user = User::findOrFail($request->id);
-        $role = Role::findOfFail($request->role_id);
+        $role = Role::findOrFail($request->role_id);
         if(!User::where('email',$request->email)->where('id','!=',$request->id)->first()) {
             $user->name = $request->name;
             $user->email = $request->email;
@@ -69,6 +72,7 @@ class UsersController extends Controller
                 $user->password = Hash::make($request->password);
             }
             $user->assignRole($role);
+            $user->save();
             return redirect()->route('user-index')->with('success',translate('تم الحفظ بنجاح'));
 
         } else {

@@ -25,9 +25,11 @@
               <div class="card">
               <div class="card-header">
                 <h3 class="card-title">{{translate('جميع السيارات')}}</h3>
+                @can('Cars Create')
                 <a href="{{ route('car-create') }}" class="btn btn-primary btn-sm float-right">
                     {{ translate('إضافة سيارة جديد') }}
                 </a>
+                @endcan
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -71,8 +73,12 @@
                       <td>{{$car->year}}</td>
                       <td>{{$car->fuel}}</td>
                       <td>
+                         @can('Cars Edit')
                         <a href="{{route('car-edit',$car->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                         @endcan
+                         @can('Cars Delete')
                         <a href="{{route('car-delete',$car->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                         @endcan
                       </td>
                       
                    
