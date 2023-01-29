@@ -147,7 +147,7 @@
             @endcan
             </ul>
         </li>
-        
+
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -182,21 +182,23 @@
               </li>
             @endcan
             </ul>
-            
-          </li>
-         
+
+        </li>
+
             <li class="nav-item">
-            @can('Settings Edit')
-            <a href="{{ route('settings') }}" class="nav-link">
-                  <i class="nav-icon fas fa-wrench"></i>  
-                  <p>
-                    {{ translate('اعدادات الموقع') }}
-                   
-                  </p>
-                </a>
-            @endcan
+                @can('Settings Edit')
+                <a href="{{ route('settings') }}" class="nav-link">
+                    <i class="nav-icon fas fa-wrench"></i>
+                    <p>
+                        {{ translate('اعدادات الموقع') }}
+
+                    </p>
+                    </a>
+                @endcan
 
             </li>
+
+
 
 
 

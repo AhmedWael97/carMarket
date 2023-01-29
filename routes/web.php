@@ -73,6 +73,11 @@ Route::prefix('/admin/dashboard')->group(function($router){
     Route::get('/settings/index','\App\Http\Controllers\SettingsController@index')->name('settings');
     Route::post('/update/settings','\App\Http\Controllers\SettingsController@update')->name('settings-update');
 
+
+    Route::get('/order-index','App\Http\Controllers\OrderController@index')->name('order-index');
+    Route::get('/order-create','App\Http\Controllers\OrderController@create')->name('order-create');
+    Route::post('/order-store','App\Http\Controllers\OrderController@store')->name('order-store');
+    Route::get('/order-destroy/{id}','App\Http\Controllers\OrderController@destroy')->name('order-delete');
 });
 
 

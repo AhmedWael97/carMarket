@@ -8,6 +8,10 @@ class MakeController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');
+        $this->middleware("permission:Make View",['only'=>['index']]);
+        $this->middleware("permission:Make Create",['only'=>['create','store']]);
+        $this->middleware("permission:Make Edit",['only'=>['edit','update']]);
+        $this->middleware("permission:Make Delete",['only'=>['destroy']]);
     }
     public function index() {
         return view('backend.makes.index')->with('makes' , make::paginate(15));

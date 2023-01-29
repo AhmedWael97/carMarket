@@ -8,6 +8,10 @@ class SettingsController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');
+        $this->middleware("permission:Settings View",['only'=>['index']]);
+        $this->middleware("permission:Settings Create",['only'=>['create','store']]);
+        $this->middleware("permission:Settings Edit",['only'=>['edit','update']]);
+        $this->middleware("permission:Settings Delete",['only'=>['destroy']]);
     }
     public function index() {
         return view('backend.settings.index')->with('settings' , Settings::first());

@@ -9,6 +9,10 @@ class ModelsController extends Controller
 {
      public function __construct() {
         $this->middleware('auth');
+        $this->middleware("permission:Model View",['only'=>['index']]);
+        $this->middleware("permission:Model Create",['only'=>['create','store']]);
+        $this->middleware("permission:Model Edit",['only'=>['edit','update']]);
+        $this->middleware("permission:Model Delete",['only'=>['destroy']]);
     }
     public function index() {
         return view('backend.models.index')->with('models' , models::paginate(15));
