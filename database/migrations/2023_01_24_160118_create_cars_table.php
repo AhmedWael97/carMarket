@@ -44,6 +44,7 @@ return new class extends Migration
             $table->string('fuel')->nullable();
             $table->string('fuel_usage')->nullable();
             $table->string('country')->nullable();
+            $table->string('supplied_country')->nullable();
             $table->string('length')->nullable();
             $table->string('width')->nullable();
             $table->string('ground_clearance')->nullable();

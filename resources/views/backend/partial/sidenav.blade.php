@@ -28,7 +28,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar main-sidebar-custom sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="/admin/dashboard/index" class="brand-link">
       <img src="{{url('/')}}/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Car Dashboard</span>
     </a>
@@ -93,11 +93,36 @@
                   @endcan
                 </ul>
             </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>
                 {{ translate('ماركات السيارات') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+
+            </ul>
+        </li> -->
+        <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                {{ translate('موديلات السيارات') }}
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="display: none;">
+
+            </ul>
+        </li>
+         -->
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                {{translate('قسم السيارات')}}
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -118,17 +143,6 @@
                 </a>
               </li>
             @endcan
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tags"></i>
-              <p>
-                {{ translate('موديلات السيارات') }}
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview" style="display: none;">
             @can('Model View')
               <li class="nav-item">
                 <a href="{{route('models-index')}}" class="nav-link">
