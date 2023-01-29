@@ -150,6 +150,12 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
+                                <label for="supplied_country">{{translate('السيارة وارد بلد ')}}</label>
+                                <input type="text" name="supplied_country" value="{{$car->supplied_country}}"class="form-control"  placeholder="{{translate('أدخل البلد الموردة للسيارة  ')}}">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
                                 <label for="lenght">{{translate('طول السيارة')}}</label>
                                 <input type="text" name="lenght" value="{{$car->length}}" class="form-control"  placeholder="{{translate('أدخل  طول السيارة ')}}">
                             </div>

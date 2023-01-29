@@ -66,7 +66,7 @@ class CarController extends Controller
         $request->thumbnail->move(public_path('images'), $imageName);
         $new_car->thumbnail = $imageName ;
         $new_car->save();
-        return redirect('/dashboard/car-index')->with('success' ,'Car Saved Succefully');
+        return redirect('/car-index')->with('success' ,'Car Saved Succefully');
 
     }
 

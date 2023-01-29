@@ -31,6 +31,7 @@ class car extends Model
         'fuel',
         'fuel_usage',
         'country',
+        'supplied_country',
         'length',
         'width',
         'ground_clearance',
