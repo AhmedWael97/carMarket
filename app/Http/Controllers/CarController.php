@@ -33,7 +33,7 @@ class CarController extends Controller
 
 
     public function downloadExampleSheet() {
-        return response()->download(public_path('/assets/exampleSheets/carExampeImportSheet.csv'),'exampleSheet.csv');
+        return Excel::download(new CarsExport, 'example.csv');
     }
 
 

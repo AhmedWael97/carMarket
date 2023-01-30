@@ -96,6 +96,6 @@ class CarsExport implements FromCollection, WithHeadings, WithMapping
     }
     public function collection()
     {
-        return car::get();
+        return car::where('id',0)->get();
     }
 }
