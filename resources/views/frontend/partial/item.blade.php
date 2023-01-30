@@ -83,7 +83,7 @@
             </div>
             <div class="col-md-6">
                 <small class="d-block">
-                   {{ translate('سعة الماتور') }} : {{ $car->engine_capacity }}
+                   {{ translate('سعة المحرك') }} : {{ $car->engine_capacity }}
                  </small>
                  @if(false)
                  <small class="d-block">

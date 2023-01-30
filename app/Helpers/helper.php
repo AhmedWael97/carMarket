@@ -37,7 +37,7 @@ if(!function_exists('car_details')){
             '<i class="fa-size-24 fa-solid fa-triangle-exclamation"></i>' ,
              $car->warranty
             ],
-            [ translate('سعة الماتور') ,
+            [ translate('سعة المحرك') ,
             '<i class="fa-solid fa-car fa-size-24"></i>' ,
              $car->engine_capacity
             ],

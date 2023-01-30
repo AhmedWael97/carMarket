@@ -41,7 +41,7 @@
                 </tr>
                 <tr>
                     <td>
-                        {{ translate('سعة الماتور') }}
+                        {{ translate('سعة المحرك') }}
                     </td>
                     @foreach($cars as $car)
                         <td class="text-center">

@@ -17,7 +17,12 @@
         <hr>
         <div class="row no-padding">
             <div class="col-md-9">
-                <img src="{{ url('/assets/imgs/bg-8.jpg') }}" class="w-auto-100 img-radius"/>
+
+                @if ($car->thumbnail != null)
+                <img src="{{ url('/images') }}/{{ $car->thumbnail }}"  class="w-auto-100 img-radius"/>
+                @else
+                    <img src="{{ url('/assets/imgs/bg-8.jpg') }}"  class="w-auto-100 img-radius"/>
+                @endif
             </div>
             <div class="col-md-3">
                 <div class="card card-padding text-center">
@@ -76,19 +81,21 @@
                                 $details = car_details($car);
                             ?>
                             @foreach($details as $detail)
-                                <div class="col-md-3 mb-4">
-                                    <div class="text-center">
+                                @if($detail[2] != null)
+                                    <div class="col-md-3 mb-4">
+                                        <div class="text-center">
 
-                                            {!! $detail[1] !!}
-                                            <br>
-                                            <span>
-                                                {{ $detail[0] }}
-                                            </span>
-                                            <br>
-                                            <strong>{{ $detail[2] }}</strong>
+                                                {!! $detail[1] !!}
+                                                <br>
+                                                <span>
+                                                    {{ $detail[0] }}
+                                                </span>
+                                                <br>
+                                                <strong>{{ $detail[2] }}</strong>
 
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
