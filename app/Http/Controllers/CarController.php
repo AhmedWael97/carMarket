@@ -70,7 +70,7 @@ class CarController extends Controller
         $request->thumbnail->move(public_path('images'), $imageName);
         $new_car->thumbnail = $imageName ;
         $new_car->save();
-        return redirect('/car-index')->with('success' ,'Car Saved Succefully');
+        return redirect()->route('car-index')->with('success' ,'Car Saved Succefully');
 
     }
 
@@ -90,7 +90,7 @@ class CarController extends Controller
         $request->thumbnail->move(public_path('images'), $imageName);
         $car->thumbnail = $imageName ;
         $car->save();
-        return redirect('/dashboard/car-index')->with('success' ,'Car Updated Succefully');
+        return redirect()->route('car-index')->with('success' ,'Car Updated Succefully');
     }
 
     public function destroy($id)

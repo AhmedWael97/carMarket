@@ -45,6 +45,36 @@
                             @endif
                         </div>
                     </div>
+                     <hr>
+                    <h4 class="mb-4">
+                        {{ translate('بينانات التواصل') }}
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>
+                                {{ translate('رقم الهاتف') }}
+                            </label>
+                            <input type="text" name="phone" value="{{ $settings->phone }}" class="form-control mb-2" />
+
+                            <input type="submit" class="btn btn-primary btn-sm mt-2" value="{{ translate('حفظ') }}" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label>
+                                {{ translate('رقم الموبايل') }}
+                            </label>
+                            <input type="text" name="mobile" value="{{ $settings->mobile }}" class="form-control mb-2" />
+
+                         </div>
+
+                         <div class="col-md-4">
+                            <label>
+                                {{ translate('العنوان') }}
+                            </label>
+                            <input type="text" name="location" value="{{ $settings->location }}" class="form-control mb-2" />
+
+                         </div>
+                    </div>
                     <hr>
                     <h4 class="mb-4">
                         {{ translate('القسم الاول') }}
