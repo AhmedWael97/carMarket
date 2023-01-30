@@ -63,7 +63,7 @@
                     </li>
                     <li class="nav-item" role="presentation">
                       <button class="nav-link" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment" type="button" role="tab" aria-controls="equipment" aria-selected="false">
-                        {{ translate('التجهيزات') }}
+                        {{ translate('المواصفات') }}
                       </button>
                     </li>
                   </ul>

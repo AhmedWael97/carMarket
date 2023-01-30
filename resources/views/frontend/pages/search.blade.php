@@ -23,17 +23,7 @@
                 </p>
             @endforelse
         </div>
-        <hr>
-        <h2 class="text-center mb-2">
-            {{ translate('ربما يعجبك أيضا') }}
-        </h2>
-        <div class="row no-padding">
-            @foreach($myYouLike as $car)
-                <div class="col-md-4">
-                    @include('frontend.partial.item',$car)
-                </div>
-            @endforeach
-        </div>
+
     </div>
 </div>
 @endsection
