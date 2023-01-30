@@ -61,7 +61,7 @@
 
                         <div class="col-md-4">
                             <label>
-                                {{ translate('رقم الموبايل') }}
+                                {{ translate('رقم الجوال') }}
                             </label>
                             <input type="text" name="mobile" value="{{ $settings->mobile }}" class="form-control mb-2" />
 
