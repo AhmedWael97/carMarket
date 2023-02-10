@@ -71,26 +71,6 @@
         <small class="text-grey d-block">
            {{ substr($car->short_desc, 0, 50) }}
         </small>
-        <div class="splitter"></div>
-       <div class="row no-margin mb-2">
-            <div class="col-md-6">
-                <small class="d-block">
-                    {{ translate('سنة الصنع') }} : {{ $car->year }}
-                 </small>
-                 <small class="d-block">
-                    {{ translate('ناقل الحركة') }} : {{ $car->transmittion }}
-                 </small>
-            </div>
-            <div class="col-md-6">
-                <small class="d-block">
-                   {{ translate('سعة المحرك') }} : {{ $car->engine_capacity }}
-                 </small>
-                 @if(false)
-                 <small class="d-block">
-                    كيلو متر : 1000 كم
-                 </small>
-                 @endif
-            </div>
-       </div>
+
      </div>
 </div>
