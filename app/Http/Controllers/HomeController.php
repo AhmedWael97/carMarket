@@ -131,7 +131,7 @@ class HomeController extends Controller
         $cars = car::where([
             'make_id' => $request->make,
             'model_id' =>$request->model,
-            'year'=> $request->year,
+
         ])->get();
         $mayYouLike = car::inRandomOrder()->limit(3)->get();
 
@@ -146,7 +146,7 @@ class HomeController extends Controller
             'items' => car::where(
                 [
                     ['name' , 'like' , '%'.$request->car_name.'%'],
-                    ['year' ,'=', $request->year],
+
                     ['price' , '>' , (int) $request->less_price],
                     ['price' , '<' , (int) $request->max_price],
                 ]
