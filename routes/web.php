@@ -89,9 +89,9 @@ Route::get('/', '\App\Http\Controllers\HomeController@home');
 Route::get('/get/models/{make_id}','\App\Http\Controllers\HomeController@getModelsForMake');
 Route::get('/test-excel','\App\Http\Controllers\CarController@export');
 Route::get('/car/{id}','\App\Http\Controllers\HomeController@carDetails')->name('car-details');
-Route::get('/add/to/compare/{id}','\App\Http\Controllers\HomeController@addToCompare');
+Route::get('/add/to/compare/{id}','\App\Http\Controllers\HomeController@addToCompare')->name('add-compare');
 Route::get('/remove/compare/{id}','\App\Http\Controllers\HomeController@removeCompare')->name('rm-compare');
-Route::get('/add/to/favorite/{id}','\App\Http\Controllers\HomeController@addToFavorite');
+Route::get('/add/to/favorite/{id}','\App\Http\Controllers\HomeController@addToFavorite')->name('add-favorite');
 Route::get('/remove/favorite/{id}','\App\Http\Controllers\HomeController@removeFavorite')->name('rm-favorite');
 
 Route::get('/compare-page','\App\Http\Controllers\HomeController@comparePage')->name('compare-page');

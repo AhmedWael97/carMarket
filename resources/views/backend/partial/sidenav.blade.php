@@ -12,7 +12,12 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
 
+      <li class="nav-item">
+        <a href="{{ route('compare-page') }}" target="_blank" class="nav-link">
+          {{ translate("المقارنات") }}
+        </a>
 
+      </li>
       <!-- Messages Dropdown Menu -->
       <li class="nav-item">
         <a href="{{ route('logout-custom') }}" class="nav-link">
@@ -20,6 +25,8 @@
         </a>
 
       </li>
+
+
 
     </ul>
   </nav>

@@ -65,7 +65,14 @@
 
                       <td>
                          @can('Cars Edit')
-                        <a href="{{route('car-edit',$car->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                            <a href="#" class="btn btn-success btn-sm">
+                                {{ translate('بيع') }}
+                            </a>
+
+                            <button attr-id="{{ $car->id }}" class="btn btn-primary btn-sm addCompare">
+                                {{ translate('مقارنة') }}
+                            </button>
+                            <a href="{{route('car-edit',$car->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                          @endcan
                          @can('Cars Delete')
                         <a href="{{route('car-delete',$car->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
@@ -87,4 +94,21 @@
 </section>
 
 
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('.addCompare').click(function(){
+                var id = $(this).attr('attr-id');
+                $.get('{{ url("/add/to/compare/") }}/'+id,function(response){
+                    if(response == 1) {
+                        alert("{{ translate('تم الاضافة الي المقارنة') }}");
+                    } else {
+                        alert("{{ translate('حدث خطا ما') }}");
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

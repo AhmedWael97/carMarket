@@ -5,6 +5,7 @@
         <?php
             $ids = Session::get('compares');
             $cars = \App\Models\car::whereIn('id',explode(',',$ids))->get();
+            $properties = \App\Models\Property::all();
         ?>
         <table class="table table-bordered compare-table mt-2 mb-2">
             <thead>
@@ -39,226 +40,18 @@
                         </td>
                     @endforeach
                 </tr>
-                <tr>
-                    <td>
-                        {{ translate('سعة المحرك') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->engine_capacity }}
+                @foreach($properties as $property)
+                    <tr>
+                        <td>
+                            {{ translate($property->name) }}
                         </td>
-                    @endforeach
-
-                </tr>
-                <tr>
-                    <td>
-                        {{ translate('الضمان') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->warranty }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('حصان ميكانيكي') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->horse_power }}
-                        </td>
-                    @endforeach
-
-                </tr>
-                <tr>
-                    <td>
-                        {{ translate('اقصي سرعة') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->maxmum_speed }}
-                        </td>
-                    @endforeach
-
-                </tr>
-                <tr>
-                    <td>
-                        {{ translate('التسارع') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->accleration }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('ناقل الحركة') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->transmittion }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('سنة الصنع') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->year }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('الوقود') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->fuel }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('إستهلاك الوقود') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->fuel_usage }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('سعة خزان الوقود') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->fuel_tank_capacity }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('بلد الصنع') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->country }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('الطول') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->length }}
-                        </td>
-                    @endforeach
-
-                </tr>
-                <tr>
-                    <td>
-                        {{ translate('العرض') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->width }}
-                        </td>
-                    @endforeach
-
-                </tr>
-                <tr>
-                    <td>
-                        {{ translate('ارتفاع عن الارض') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->ground_clearance }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('قاعدة العجلات') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->wheel_base }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('سعة السيارة') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->trunk_size }}
-                        </td>
-                    @endforeach
-
-                </tr>
-                <tr>
-                    <td>
-                        {{ translate('عدد المقاعد') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->seats }}
-                        </td>
-                    @endforeach
-
-                </tr>
-                <tr>
-                    <td>
-                        {{ translate('عزم السيارة') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->traction_type }}
-                        </td>
-                    @endforeach
-
-                </tr>
-
-                <tr>
-                    <td>
-                        {{ translate('عدد السلندرات') }}
-                    </td>
-                    @foreach($cars as $car)
-                        <td class="text-center">
-                            {{ $car->clynder }}
-                        </td>
-                    @endforeach
-
-                </tr>
+                        @foreach($cars as $car)
+                            <td>
+                                {{ $car->properties->where('property_id',$property->id)->first() ? $car->properties->where('property_id',$property->id)->first()->value : '-' }}
+                            </td>
+                        @endforeach
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         @else
