@@ -45,12 +45,7 @@
                     <th>{{translate('الخصم')}}</th>
                     <th>{{translate('نهاية الخصم')}}</th>
                     <th>{{translate('الصورة')}}</th>
-                    <th>{{translate(' الماتور')}}</th>
-                    <th>{{translate('الاحصنة')}}</th>
-                    <th>{{translate('أعلي سرعة')}}</th>
-                    <th>{{translate('الناقل')}}</th>
-                    <th>{{translate('السنة')}}</th>
-                    <th>{{translate('الوقود')}}</th>
+
                     <th>{{translate('العمليات')}}</th>
                   </tr>
                   </thead>
@@ -66,12 +61,8 @@
                       <td>{{$car->discount_price}}</td>
                       <td>{{$car->end_date}}</td>
                       <td><img src="{{url('/')}}/images/{{$car->thumbnail}}" alt="" style="width:20px;height:20px;"></td>
-                      <td>{{$car->engine_capacity}}</td>
-                      <td>{{$car->horse_power}}</td>
-                      <td>{{$car->maxmum_speed}}</td>
-                      <td>{{$car->transmittion}}</td>
-                      <td>{{$car->year}}</td>
-                      <td>{{$car->fuel}}</td>
+
+
                       <td>
                          @can('Cars Edit')
                         <a href="{{route('car-edit',$car->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -80,8 +71,8 @@
                         <a href="{{route('car-delete',$car->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                          @endcan
                       </td>
-                      
-                   
+
+
                     </tr>
                     @endforeach
                   </tbody>

@@ -16,6 +16,8 @@
     <div class="wrapper">
         @include('backend.partial.sidenav')
         <div class="content-wrapper">
+
+            @include('backend.partial.sessions')
             @yield('content')
         </div>
         @include('backend.partial.script')

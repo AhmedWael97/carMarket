@@ -32,5 +32,13 @@ $(document).ready(function() {
     var table = $('#example').DataTable( {
         responsive: true
     } );
+
+    $('.update').click(function(){
+        var id = $(this).attr('attr-id');
+        var name = $(this).attr('attr-name');
+
+        $('.id').val(id);
+        $('.name').val(name);
+    });
 } );
 </script>

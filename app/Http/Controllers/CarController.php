@@ -8,7 +8,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Models\car;
 use App\Models\models;
 use App\Imports\CarsImport;
+use App\Models\CarProperty;
 use Response;
+use App\Models\Property;
 class CarController extends Controller
 {
 
@@ -59,17 +61,37 @@ class CarController extends Controller
     public function create()
     {
        $models = models::all();
-       return view('backend.cars.create')->with('models',$models);
+       $properties = Property::all();
+       return view('backend.cars.create')->with([
+        'models' => $models,
+        'properties' => $properties,
+       ]);
     }
 
     public function store(Request $request)
     {
         $new_car = new car($request->all());
 
-        $imageName = time().'.'.$request->thumbnail->extension();
-        $request->thumbnail->move(public_path('images'), $imageName);
-        $new_car->thumbnail = $imageName ;
+        if($request->has('thumbnail')) {
+            $imageName = time().'.'.$request->thumbnail->extension();
+            $request->thumbnail->move(public_path('images'), $imageName);
+            $new_car->thumbnail = $imageName ;
+
+        }
         $new_car->save();
+
+        $properties = Property::all();
+        foreach($properties as $property){
+            $prop = "prop_".$property->id;
+            if($request->has($prop) && $request->$prop != null) {
+                $newPropForCar = new CarProperty();
+                $newPropForCar->car_id = $new_car->id;
+                $newPropForCar->property_id = $property->id;
+                $newPropForCar->value = $request->$prop;
+                $newPropForCar->save();
+            }
+        }
+
         return redirect()->route('car-index')->with('success' ,'Car Saved Succefully');
 
     }
@@ -78,7 +100,8 @@ class CarController extends Controller
     {
         $car = car::findOrFail($id);
         $models = models::all();
-        return view('backend.cars.update')->with(['car'=>$car , 'models'=>$models]);
+        $properties = Property::all();
+        return view('backend.cars.update')->with(['car'=>$car , 'models'=>$models, 'properties' => $properties,]);
     }
 
 
@@ -86,10 +109,32 @@ class CarController extends Controller
     {
         $car = car::findOrFail($request->id);
         $car->update($request->all());
-        $imageName = time().'.'.$request->thumbnail->extension();
-        $request->thumbnail->move(public_path('images'), $imageName);
-        $car->thumbnail = $imageName ;
-        $car->save();
+        if($request->has('thumbnail')){
+            $imageName = time().'.'.$request->thumbnail->extension();
+            $request->thumbnail->move(public_path('images'), $imageName);
+            $car->thumbnail = $imageName ;
+            $car->save();
+        }
+
+        $properties = Property::all();
+        foreach($properties as $property){
+            $prop = "prop_".$property->id;
+            if($request->has($prop) && $request->$prop != null) {
+                if(CarProperty::where(['car_id'=>$car->id,'property_id'=>$property->id])->first()) {
+                    $newPropForCar =  CarProperty::where(['car_id'=>$car->id,'property_id'=>$property->id])->first();
+                    $newPropForCar->value = $request->$prop;
+                    $newPropForCar->save();
+                } else {
+                    $newPropForCar = new CarProperty();
+                    $newPropForCar->car_id = $car->id;
+                    $newPropForCar->property_id = $property->id;
+                    $newPropForCar->value = $request->$prop;
+                    $newPropForCar->save();
+                }
+
+            }
+        }
+
         return redirect()->route('car-index')->with('success' ,'Car Updated Succefully');
     }
 
@@ -97,7 +142,7 @@ class CarController extends Controller
     {
         $car = car::findOrFail($id);
         $car->delete();
-        return redirect('/dashboard/car-index')->with('danger' ,'Car Deleted Succefully');
+        return redirect()->route('car-index')->with('danger' ,'Car Deleted Succefully');
     }
 
 }

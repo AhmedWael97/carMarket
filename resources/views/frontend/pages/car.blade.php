@@ -66,36 +66,30 @@
                         {{ translate('التفاصيل') }}
                       </button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment" type="button" role="tab" aria-controls="equipment" aria-selected="false">
-                        {{ translate('المواصفات') }}
-                      </button>
-                    </li>
+
                   </ul>
             </div>
             <div class="col-md-12 mt-2">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
                         <div class="row no-padding m-2">
-                            <?php
-                                $details = car_details($car);
-                            ?>
-                            @foreach($details as $detail)
-                                @if($detail[2] != null)
+
+                            @foreach($car->properties as $carProp)
+
                                     <div class="col-md-3 mb-4">
                                         <div class="text-center">
 
-                                                {!! $detail[1] !!}
-                                                <br>
+
+
                                                 <span>
-                                                    {{ $detail[0] }}
+                                                    {{ translate($carProp->property->name) }}
                                                 </span>
                                                 <br>
-                                                <strong>{{ $detail[2] }}</strong>
+                                                <strong>{{ translate($carProp->value) }}</strong>
 
                                         </div>
                                     </div>
-                                @endif
+
                             @endforeach
                         </div>
                     </div>

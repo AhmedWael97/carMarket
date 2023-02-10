@@ -22,31 +22,6 @@ class car extends Model
         'end_date',
         'short_desc',
         'desc',
-        'warranty',
-        'engine_capacity',
-        'horse_power',
-        'maxmum_speed',
-        'transmittion',
-        'year',
-        'fuel',
-        'fuel_usage',
-        'country',
-        'supplied_country',
-        'length',
-        'width',
-        'ground_clearance',
-        'wheel_base',
-        'trunk_size',
-        'seats',
-        'traction_type',
-        'clynder',
-        'fuel_tank_capacity',
-        'comfort',
-        'windows',
-        'sound_system',
-        'safety',
-        'other',
-        'qty',
         'thumbnail',
     ];
 
@@ -60,5 +35,9 @@ class car extends Model
 
     public function model_type() {
         return $this->hasOne('\App\Models\models','id','model_id');
+    }
+
+    public function properties() {
+        return $this->hasMany('\App\Models\CarProperty','car_id','id');
     }
 }

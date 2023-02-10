@@ -159,6 +159,14 @@
                 </a>
               </li>
             @endcan
+            @can('Property View')
+            <li class="nav-item">
+              <a href="{{route('properties-index')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{translate('جميع خصائص السيارات')}}</p>
+              </a>
+            </li>
+          @endcan
             @can('Cars View')
             <li class="nav-item">
               <a href="{{route('car-index')}}" class="nav-link">

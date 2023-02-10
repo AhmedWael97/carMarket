@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $user = \App\Models\User::factory()->create([
             'name' => 'Super Admin',
-            'password' => '123456789',
+            'password' => Hash::make('123456789'),
             'email' => 'admin@admin.com',
         ]);
 
@@ -53,6 +54,11 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name' => 'Cars Create']);
         Permission::create(['name' => 'Cars Edit']);
         Permission::create(['name' => 'Cars Delete']);
+
+        Permission::create(['name' => 'Property View']);
+        Permission::create(['name' => 'Property Create']);
+        Permission::create(['name' => 'Property Edit']);
+        Permission::create(['name' => 'Property Delete']);
 
         Permission::create(['name' => 'Settings View']);
         Permission::create(['name' => 'Settings Create']);
