@@ -65,7 +65,7 @@
 
                       <td>
                          @can('Cars Edit')
-                            <a href="#" class="btn btn-success btn-sm">
+                            <a href="#" class="btn d-none btn-success btn-sm">
                                 {{ translate('بيع') }}
                             </a>
 
