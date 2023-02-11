@@ -26,12 +26,31 @@ class CarsImport implements ToModel, WithStartRow
                 $car->save();
                 return $car;
             } else {
-            return new car([
+            $car = new car([
                     'name' => $row[1],
                     'make_id' => 1,
                     'model_id' => 1,
                     'qty' => 1,
                 ]);
+                $car->save();
+            $props = [
+                ['المخزن',3],
+                ['اللون', 7],
+                ['الموديل', 8],
+                ['المجموعة',5]
+            ];
+
+            foreach($props as $prop) {
+                $property = \App\Models\Property::where('name',$prop[0])->first();
+                if($property) {
+                    $newPropertyForCar = new \App\Models\CarProperty();
+                    $newPropertyForCar->car_id = $car->id;
+                    $newPropertyForCar->property_id = $property->id;
+                    $newPropertyForCar->value = $row[$prop[1]];
+                    $newPropertyForCar->save();
+                }
+            }
+                return $car;
             }
     }
 }

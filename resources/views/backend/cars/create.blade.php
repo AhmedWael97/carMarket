@@ -19,9 +19,7 @@
               <li class="nav-item">
                 <a class="nav-link active" id="custom-content-below-home-tab" data-toggle="pill" href="#custom-content-below-home" role="tab" aria-controls="custom-content-below-home" aria-selected="true">{{translate('التفاصيل')}}</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" id="custom-content-below-profile-tab" data-toggle="pill" href="#custom-content-below-profile" role="tab" aria-controls="custom-content-below-profile" aria-selected="false">{{translate('المواصفات')}}</a>
-              </li>
+
             </ul>
             <form action="{{route('car-store')}}" method="post" enctype="multipart/form-data">
              @csrf
