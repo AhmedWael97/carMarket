@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\models;
-use App\Models\make;
+
 class ModelsController extends Controller
 {
      public function __construct() {
@@ -19,7 +19,7 @@ class ModelsController extends Controller
     }
 
     public function create() {
-        return view('backend.models.create')->with('makes' , make::get());
+        return view('backend.models.create');
     }
 
     public function store(Request $request) {
@@ -33,7 +33,7 @@ class ModelsController extends Controller
 
     public function edit($id) {
         return view('backend.models.edit')->with(
-            ['model' => models::findOrFail($id), 'makes' => make::get()]
+            ['model' => models::findOrFail($id)]
         );
     }
 

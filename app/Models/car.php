@@ -11,7 +11,7 @@ class car extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'make_id',
+       
         'model_id',
         'name',
         'price',
@@ -29,9 +29,9 @@ class car extends Model
         return $this->hasMany('\App\Models\carImgs','car_id','id');
     }
 
-    public function make() {
-        return $this->hasOne('\App\Models\make','id','make_id');
-    }
+    // public function make() {
+    //     return $this->hasOne('\App\Models\make','id','make_id');
+    // }
 
     public function model_type() {
         return $this->hasOne('\App\Models\models','id','model_id');

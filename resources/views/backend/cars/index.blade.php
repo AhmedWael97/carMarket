@@ -60,9 +60,13 @@
                       <td>{{$car->used}}</td>
                       <td>{{$car->discount_price}}</td>
                       <td>{{$car->end_date}}</td>
-                      <td><img src="{{url('/')}}/images/{{$car->thumbnail}}" alt="" style="width:20px;height:20px;"></td>
-
-
+                      <td>
+                      @if($car->thumnail)
+                      <img src="{{url('/')}}/images/{{$car->thumbnail}}" alt="" style="width:20px;height:20px;">
+                      @else
+                      <img src="{{url('/')}}/images/default.jpg" alt="" style="width:20px;height:20px;">
+                      @endif
+                      </td>
                       <td>
                          @can('Cars Edit')
                             <a href="#" class="btn d-none btn-success btn-sm">

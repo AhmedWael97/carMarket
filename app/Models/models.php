@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class models extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['name', 'make_id'];
+    protected $fillable = ['name'];
 
-    public function make() {
-        return $this->hasOne('\App\Models\make','id','make_id');
-    }
+    // public function make() {
+    //     return $this->hasOne('\App\Models\make','id','make_id');
+    // }
 }

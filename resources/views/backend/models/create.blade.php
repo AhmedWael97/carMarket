@@ -22,18 +22,7 @@
                             <input type="text" name="name" class="form-control mb-2" required />
                             <input type="submit" class="btn btn-primary btn-sm" value="{{ translate('حفظ') }}" />
                         </div>
-                        <div class="col-md-6">
-                            <label>
-                                {{ translate('اسم الماركة') }}
-                            </label>
-                            <select class="form-select" name="make_id" required>
-                                <option disabled selected> {{ translate('إختر اسم الماركة') }} </option>
-                                @foreach ($makes as $make)
-                                    <option value="{{ $make->id }}"> {{ $make->name }} </option>
-                                @endforeach
-                            </select>
-
-                        </div>
+                        
                     </div>
                 </form>
             </div>

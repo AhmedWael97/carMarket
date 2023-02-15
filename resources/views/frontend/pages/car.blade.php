@@ -21,7 +21,7 @@
                 @if ($car->thumbnail != null)
                 <img src="{{ url('/images') }}/{{ $car->thumbnail }}"  class="w-auto-100 img-radius"/>
                 @else
-                    <img src="{{ url('/assets/imgs/bg-8.jpg') }}"  class="w-auto-100 img-radius"/>
+                    <img src="{{url('/')}}/images/default.jpg"  class="w-auto-100 img-radius"/>
                 @endif
             </div>
             <div class="col-md-3">

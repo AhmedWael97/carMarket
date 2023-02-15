@@ -78,6 +78,9 @@ class CarController extends Controller
             $new_car->thumbnail = $imageName ;
 
         }
+        else{
+            $new_car->thumbnail = "default.jpg";
+        }
         $new_car->save();
 
         $properties = Property::all();

@@ -4,13 +4,19 @@
     <div class="row">
         <div class="col-md-6"></div>
         <div class="col-md-6">
-            <div class="card card-home">
+            <div class="card card-home" style="min-height:350px;">
                 <div class="card-header">
-                   {{ translate(' إبحث عن نوع السيارة المناسب لكـ') }}
+                   {{ translate(' إبحث عن السيارة المناسب لكـ') }}
                 </div>
                 <div class="card-body">
                     <form method="get" action="{{ route('search') }}">
-                        <div class="form-group mb-4">
+                   
+                            <div class="form-group mb-4">
+                                <label for="name">{{translate('أدخل اسم السيارة')}}</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="{{translate('أدخل اسم السيارة')}}">
+                            </div>
+                        
+                        <!-- <div class="form-group mb-4">
                             <label>
                                {{ translate('ماركة السيارة') }}
                             </label>
@@ -22,14 +28,14 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="form-group mb-4">
+                        </div> -->
+                        <!-- <div class="form-group mb-4">
                             <label>
                                {{ translate('موديل السيارة') }}
                             </label>
                             <select class="form-select models select2" required name="model"></select>
-                        </div>
-                        <div class="form-group mb-4">
+                        </div> -->
+                        <!-- <div class="form-group mb-4">
                             <label>
                                 {{ translate('سنة الصنع') }}
                             </label>
@@ -39,7 +45,7 @@
                                     <option value="{{ $i }}"> {{ $i }}</option>
                                 @endfor
                             </select>
-                        </div>
+                        </div> -->
                         <div class="form-group mb-4">
                             <button type="submit" class="btn btn-primary btn-block w-100">
                                 إبحث الان
