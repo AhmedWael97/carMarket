@@ -15,10 +15,7 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('make_id')->nullable();
-            $table->foreign('make_id')
-            ->references('id')->on('makes')
-            ->onDelete('cascade');
+
             $table->unsignedBigInteger('model_id')->nullable();
             $table->foreign('model_id')
             ->references('id')->on('models')
