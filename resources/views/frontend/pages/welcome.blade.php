@@ -10,42 +10,13 @@
                 </div>
                 <div class="card-body">
                     <form method="get" action="{{ route('search') }}">
-                   
+
                             <div class="form-group mb-4">
                                 <label for="name">{{translate('أدخل اسم السيارة')}}</label>
                                 <input type="text" name="name" class="form-control" id="name" placeholder="{{translate('أدخل اسم السيارة')}}">
                             </div>
-                        
-                        <!-- <div class="form-group mb-4">
-                            <label>
-                               {{ translate('ماركة السيارة') }}
-                            </label>
-                            <select class="form-select makes select2" required name="make">
-                                <option disabled selected> {{ translate('إختر ماركة السيارة') }} </option>
-                                @foreach($makes as $make)
-                                    <option value="{{ $make->id }}">
-                                        {{ $make->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div> -->
-                        <!-- <div class="form-group mb-4">
-                            <label>
-                               {{ translate('موديل السيارة') }}
-                            </label>
-                            <select class="form-select models select2" required name="model"></select>
-                        </div> -->
-                        <!-- <div class="form-group mb-4">
-                            <label>
-                                {{ translate('سنة الصنع') }}
-                            </label>
-                            <select class="form-select select2" name="model">
-                                <option disabled selected> {{ translate('إختر سنة الصنع') }} </option>
-                                @for($i = Date('Y',strtotime("+1 year")) ; $i >= 2000  ; $i-- )
-                                    <option value="{{ $i }}"> {{ $i }}</option>
-                                @endfor
-                            </select>
-                        </div> -->
+
+
                         <div class="form-group mb-4">
                             <button type="submit" class="btn btn-primary btn-block w-100">
                                 إبحث الان
