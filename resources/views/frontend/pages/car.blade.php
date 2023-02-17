@@ -5,7 +5,9 @@
         <div class="mt-2">
             <small>
                 <b>
-                    <i class="bi bi-house"></i> {{ translate('الرئيسية') }}  /  <i class="bi bi-tag"></i> {{ $car->make != null ?  $car->make->name  : '' }} / <i class="bi bi-car-front"></i> {{ $car->model_type != null ?  $car->model_type->name  : '' }}
+                    <i class="bi bi-house"></i> {{ translate('الرئيسية') }}  /
+
+                      <i class="bi bi-car-front"></i> {{ $car->model_type != null ?  $car->model_type->name  : '' }}
                 </b>
             </small>
         </div>
@@ -75,7 +77,7 @@
                         <div class="row no-padding m-2">
 
                             @foreach($car->properties as $carProp)
-
+                                    @if($carProp->property->active == 1)
                                     <div class="col-md-3 mb-4">
                                         <div class="text-center">
 
@@ -90,6 +92,7 @@
                                         </div>
                                     </div>
 
+                                    @endif
                             @endforeach
                         </div>
                     </div>

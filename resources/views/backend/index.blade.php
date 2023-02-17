@@ -1,6 +1,6 @@
 @extends('backend.partial.layout')
 @section('content')
-<?php  
+<?php
 $cars= App\Models\car::all();
 $num_of_cars =count($cars);
 
@@ -61,23 +61,7 @@ $num_of_makes = count(App\Models\make::all());
               </a>
             </div>
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small card -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>{{$num_of_makes}}</h3>
 
-                <p>{{translate('عدد الماركات')}}</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-chart-pie"></i>
-              </div>
-              <a href="{{route('makes-index')}}" class="small-box-footer">
-                {{translate('عرض الكل')}} <i class="fas fa-arrow-circle-right"></i>
-              </a>
-            </div>
-          </div>
           <!-- ./col -->
         </div>
         </div>

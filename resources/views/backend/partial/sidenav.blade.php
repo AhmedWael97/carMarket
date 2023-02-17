@@ -134,7 +134,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: none;">
-            @can('Make View')
+            {{-- @can('Make View')
               <li class="nav-item">
                 <a href="{{route('makes-index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -149,7 +149,7 @@
                   <p> {{ translate('إضافة ماركة جديدة') }} </p>
                 </a>
               </li>
-            @endcan
+            @endcan --}}
             @can('Model View')
               <li class="nav-item">
                 <a href="{{route('models-index')}}" class="nav-link">

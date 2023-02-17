@@ -3,16 +3,16 @@
         @if ($car->thumbnail != null)
         <img src="{{ url('/images') }}/{{ $car->thumbnail }}"  class="w-100"/>
         @else
-            <img src="{{ url('/assets/imgs/bg-8.jpg') }}"  class="w-100"/>
+        <img src="{{url('/')}}/images/default.jpg" class="w-100">
         @endif
         <div class="brands mb-2 ">
-            <label class="badge bg-dark">
+            {{-- <label class="badge bg-dark">
                 @if($car->make)
                     {{ $car->make->name }}
                 @else
                     {{ translate('لم يخصص ماركة') }}
                 @endif
-            </label>
+            </label> --}}
             <label class="badge bg-dark">
                 @if($car->model_type)
                     {{ $car->model_type->name }}

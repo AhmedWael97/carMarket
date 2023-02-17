@@ -40,5 +40,21 @@ $(document).ready(function() {
         $('.id').val(id);
         $('.name').val(name);
     });
+
+
+    $('.changeStatus').change(function(){
+        var propId = $(this).attr("propId");
+        var value = $(this).is(':checked');
+
+        if(value == true) {
+            $.get('{{ url("/admin/dashboard/change-property/status") }}/'+propId+'/1',function(){
+                alert('success');
+            });
+        } else {
+            $.get('{{ url("/admin/dashboard/change-property/status") }}/'+propId+'/0',function(){
+                alert('success');
+            });
+        }
+    });
 } );
 </script>

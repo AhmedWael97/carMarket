@@ -32,6 +32,7 @@
                     <thead>
                         <th>#</th>
                         <th>{{ translate('إسم الخاصية') }}</th>
+                        <th>{{ translate('مفعل ؟') }}</th>
                         <th>{{ translate('العمليات') }}</th>
                     </thead>
                     <tbody>
@@ -42,6 +43,9 @@
                                 </td>
                                 <td>
                                     {{ $property->name }}
+                                </td>
+                                <td>
+                                    <input class="form-check changeStatus" value="1" propId="{{ $property->id }}" type="checkbox" name="checkbox" {{ $property->active ?? 'check' }}/>
                                 </td>
                                 <td>
                                     @can('Property Edit')

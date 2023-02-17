@@ -82,6 +82,8 @@ Route::prefix('/admin/dashboard')->group(function($router){
     Route::get('/propreties-index','App\Http\Controllers\PropertyController@index')->name('properties-index');
     Route::post('/propreties-store','App\Http\Controllers\PropertyController@store')->name('properties-store');
     Route::get('/propreties-delete/{id}','App\Http\Controllers\PropertyController@destroy')->name('properties-destroy');
+
+    Route::get('/change-property/status/{propId}/{status}','App\Http\Controllers\PropertyController@changeStatus');
 });
 
 

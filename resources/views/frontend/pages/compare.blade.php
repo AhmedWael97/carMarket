@@ -26,7 +26,11 @@
                     </td>
                     @foreach($cars as $car)
                         <td class="text-center">
-                            <img src="{{ url('assets/imgs/bg-8.jpg') }}"  class="w-100" />
+                           @if($car->thumbnail)
+                           <img src="{{ url('/images') }}/{{ $car->thumbnail }}"  class="w-100"/>
+                           @else
+                           <img src="{{url('/')}}/images/default.jpg" class="w-100">
+                           @endif
                         </td>
                     @endforeach
                 </tr>
@@ -41,6 +45,7 @@
                     @endforeach
                 </tr>
                 @foreach($properties as $property)
+                    @if($property->active == 1)
                     <tr>
                         <td>
                             {{ translate($property->name) }}
@@ -51,6 +56,7 @@
                             </td>
                         @endforeach
                     </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>

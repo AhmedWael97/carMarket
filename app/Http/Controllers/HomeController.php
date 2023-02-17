@@ -128,7 +128,7 @@ class HomeController extends Controller
         return view('frontend.pages.fav');
     }
     public function search(Request $request) {
-        $cars = car::where('name','LIKE',"%{$request->name}%");
+        $cars = car::where('name','LIKE',"%{$request->name}%")->get();
         $mayYouLike = car::inRandomOrder()->limit(3)->get();
 
         return view('frontend.pages.search')->with([

@@ -37,4 +37,13 @@ class PropertyController extends Controller
 
         return back()->with('success',translate('تم الحذف بنجاح'));
     }
+
+    public function changeStatus($propId, $status) {
+
+        $prop = Property::findOrFail($propId);
+        $prop->active = $status;
+        $prop->save();
+
+        return 1;
+    }
 }
