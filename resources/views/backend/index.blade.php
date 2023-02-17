@@ -6,7 +6,6 @@ $num_of_cars =count($cars);
 
 $num_of_user =count(App\Models\User::all()) ;
 $num_of_models = count(App\Models\models::all());
-$num_of_makes = count(App\Models\make::all());
 ?>
 <section class="content">
 <div class="container-fluide card mt-4">
