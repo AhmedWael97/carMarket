@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\make;
+
 use App\Models\models;
 use App\Models\car;
 use App\Models\subscribers;
@@ -14,7 +14,6 @@ class HomeController extends Controller
 {
     public function home() {
         return view('frontend.pages.welcome')->with([
-            'makes' => make::select('id','name')->get(),
             'newest' => car::orderBy('id','desc')->take(12)->get(),
             'mostViewed' => car::where('views','>',0)->take(12)->get(),
         ]);
