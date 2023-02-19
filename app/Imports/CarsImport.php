@@ -28,7 +28,6 @@ class CarsImport implements ToModel, WithStartRow
             } else {
             $car = new car([
                     'name' => $row[1],
-                    'make_id' => 1,
                     'model_id' => 1,
                     'qty' => 1,
                 ]);
